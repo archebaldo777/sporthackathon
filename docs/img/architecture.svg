@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" font-family="Inter, DejaVu Sans, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B6B7B"/></marker>
+  </defs>
+  <rect width="1000" height="620" fill="#ffffff"/>
+  <!-- clients -->
+  <rect x="30" y="20" width="430" height="90" rx="14" fill="#F1EFFF" stroke="#402FFF"/>
+  <text x="50" y="46" font-weight="700" fill="#14141A">Frontend — SPA (React, TypeScript, Vite, Tailwind)</text>
+  <text x="50" y="70" fill="#3A3A48">Кабинет кандидата · Кабинет работодателя · Публичные страницы</text>
+  <text x="50" y="92" fill="#3A3A48">(механика, валидация, вакансии, проверка PDF)</text>
+  <rect x="540" y="20" width="430" height="90" rx="14" fill="#14141A"/>
+  <text x="560" y="46" font-weight="700" fill="#ffffff">ФСП ID (Keycloak / OIDC) + реестр ФСП</text>
+  <text x="560" y="70" fill="#C9C7FF">в прототипе — сервис fsp-mock с теми же URL реалма</text>
+  <text x="560" y="92" fill="#C9C7FF">/realms/fsp/protocol/openid-connect/* · /api/v1/athletes/*</text>
+  <!-- nginx -->
+  <rect x="30" y="140" width="430" height="44" rx="10" fill="#EDEDED"/>
+  <text x="50" y="167" fill="#14141A">nginx: статика SPA, прокси /api → backend</text>
+  <line x1="245" y1="110" x2="245" y2="138" stroke="#6B6B7B" marker-end="url(#a)"/>
+  <!-- backend -->
+  <rect x="30" y="210" width="940" height="290" rx="16" fill="#ffffff" stroke="#402FFF" stroke-width="2"/>
+  <text x="50" y="238" font-weight="700" fill="#402FFF">Backend — FastAPI (монолит с модулями, OpenAPI)</text>
+  <line x1="245" y1="184" x2="245" y2="208" stroke="#6B6B7B" marker-end="url(#a)"/>
+  <g>
+    <rect x="50" y="252" width="200" height="66" rx="10" fill="#F6F6FA" stroke="#E6E6EF"/>
+    <text x="62" y="276" font-weight="600">api/v1 + RBAC</text><text x="62" y="298" fill="#6B6B7B">роутеры, схемы, ошибки</text>
+    <rect x="265" y="252" width="200" height="66" rx="10" fill="#F6F6FA" stroke="#E6E6EF"/>
+    <text x="277" y="276" font-weight="600">Аутентификация</text><text x="277" y="298" fill="#6B6B7B">JWT RS256, JWKS, e-mail</text>
+    <rect x="480" y="252" width="215" height="66" rx="10" fill="#F1EFFF" stroke="#C9C2FF"/>
+    <text x="492" y="276" font-weight="600">Тестирование</text><text x="492" y="298" fill="#6B6B7B">генераторы · IRT · CAT</text>
+    <rect x="710" y="252" width="240" height="66" rx="10" fill="#F1EFFF" stroke="#C9C2FF"/>
+    <text x="722" y="276" font-weight="600">Подбор</text><text x="722" y="298" fill="#6B6B7B">категории · ранжирование · объяснения</text>
+    <rect x="50" y="332" width="200" height="66" rx="10" fill="#F6F6FA" stroke="#E6E6EF"/>
+    <text x="62" y="356" font-weight="600">NLP</text><text x="62" y="378" fill="#6B6B7B">резюме PDF, потребность</text>
+    <rect x="265" y="332" width="200" height="66" rx="10" fill="#F6F6FA" stroke="#E6E6EF"/>
+    <text x="277" y="356" font-weight="600">Клиент ФСП</text><text x="277" y="378" fill="#6B6B7B">OIDC + PKCE, синхронизация</text>
+    <rect x="480" y="332" width="215" height="66" rx="10" fill="#F6F6FA" stroke="#E6E6EF"/>
+    <text x="492" y="356" font-weight="600">Приглашения · вакансии</text><text x="492" y="378" fill="#6B6B7B">статусы, раскрытие контактов</text>
+    <rect x="710" y="332" width="240" height="66" rx="10" fill="#F6F6FA" stroke="#E6E6EF"/>
+    <text x="722" y="356" font-weight="600">Регулярные задачи</text><text x="722" y="378" fill="#6B6B7B">назначение, автопроверка, оценка</text>
+    <rect x="50" y="412" width="200" height="66" rx="10" fill="#F6F6FA" stroke="#E6E6EF"/>
+    <text x="62" y="436" font-weight="600">Антифрод</text><text x="62" y="458" fill="#6B6B7B">доверие, лимиты, флаги</text>
+    <rect x="265" y="412" width="200" height="66" rx="10" fill="#F6F6FA" stroke="#E6E6EF"/>
+    <text x="277" y="436" font-weight="600">PDF-профиль</text><text x="277" y="458" fill="#6B6B7B">ReportLab, QR-проверка</text>
+    <rect x="480" y="412" width="215" height="66" rx="10" fill="#F6F6FA" stroke="#E6E6EF"/>
+    <text x="492" y="436" font-weight="600">Уведомления · аудит</text><text x="492" y="458" fill="#6B6B7B">in-app, SMTP, согласия</text>
+    <rect x="710" y="412" width="240" height="66" rx="10" fill="#F6F6FA" stroke="#E6E6EF"/>
+    <text x="722" y="436" font-weight="600">ATS: API-ключи, вебхуки</text><text x="722" y="458" fill="#6B6B7B">HMAC-подпись, повторы</text>
+  </g>
+  <!-- storage & externals -->
+  <rect x="30" y="530" width="290" height="70" rx="14" fill="#14141A"/>
+  <text x="50" y="558" font-weight="700" fill="#ffffff">PostgreSQL 16</text>
+  <text x="50" y="580" fill="#C9C7FF">пользователи, профили, попытки, подборки</text>
+  <rect x="355" y="530" width="290" height="70" rx="14" fill="#EDEDED"/>
+  <text x="375" y="558" font-weight="700">SMTP (Mailpit на стенде)</text>
+  <text x="375" y="580" fill="#3A3A48">подтверждение e-mail, уведомления</text>
+  <rect x="680" y="530" width="290" height="70" rx="14" fill="#FFF0F2" stroke="#EC1D35"/>
+  <text x="700" y="558" font-weight="700">ATS работодателя</text>
+  <text x="700" y="580" fill="#3A3A48">Huntflow, Potok, E-Staff…</text>
+  <line x1="175" y1="500" x2="175" y2="528" stroke="#6B6B7B" marker-end="url(#a)"/>
+  <line x1="500" y1="500" x2="500" y2="528" stroke="#6B6B7B" marker-end="url(#a)"/>
+  <line x1="825" y1="500" x2="825" y2="528" stroke="#6B6B7B" marker-end="url(#a)"/>
+  <line x1="365" y1="332" x2="700" y2="112" stroke="#EC1D35" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="560" y="190" fill="#EC1D35">OIDC: token, JWKS, userinfo; реестр: результаты</text>
+  <line x1="460" y1="66" x2="538" y2="66" stroke="#EC1D35" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="463" y="58" fill="#EC1D35" font-size="11">вход</text>
+</svg>

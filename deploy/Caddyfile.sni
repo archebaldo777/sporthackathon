@@ -1,0 +1,39 @@
+# Режим «порт 443 уже занят другим сервисом» (например, VPN): HAProxy на хосте принимает TLS на 443, по имени (SNI)
+# передаёт подключения стенда сюда вместе с PROXY protocol (Caddy видит реальный IP клиента), остальное — своему сервису.
+# Порт 80 Caddy слушает сам: выпуск сертификатов Let's Encrypt (HTTP-01) и переадресация на HTTPS.
+{
+	servers :443 {
+		listener_wrappers {
+			proxy_protocol {
+				timeout 5s
+				allow 127.0.0.1/32 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
+			}
+			tls
+		}
+	}
+}
+
+{$APP_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy frontend:80
+}
+
+{$FSP_DOMAIN} {
+	encode gzip
+	reverse_proxy fsp-mock:8081
+}
+
+{$MAIL_DOMAIN} {
+	reverse_proxy mailpit:8025
+}
+
+# Дополнительные имена портала (www, прежний технический адрес) — постоянная переадресация на основной домен
+{$APP_REDIRECT_FROM:http://redirect.invalid} {
+	redir https://{$APP_DOMAIN}{uri} permanent
+}
+
+# Проверки Let's Encrypt для сертификатов других сервисов хоста (certbot --webroot), раз порт 80 теперь у Caddy
+{$ACME_WEBROOT_SITES:http://acme.invalid} {
+	root * /srv/acme
+	file_server
+}

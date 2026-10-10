@@ -1,0 +1,48 @@
+# Публичный демо-стенд: HTTPS через Caddy (сертификаты Let's Encrypt выпускаются автоматически),
+# наружу открыты только 80/443, сервисы общаются внутри сети Docker.
+# Запуск: ./deploy/deploy.sh   (или: docker compose -f docker-compose.yml -f deploy/docker-compose.prod.yml up -d --build)
+services:
+  caddy:
+    image: caddy:2.8-alpine
+    depends_on:
+      - frontend
+      - fsp-mock
+      - mailpit
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN:?задайте APP_DOMAIN}
+      FSP_DOMAIN: ${FSP_DOMAIN:?задайте FSP_DOMAIN}
+      MAIL_DOMAIN: ${MAIL_DOMAIN:?задайте MAIL_DOMAIN}
+      APP_REDIRECT_FROM: ${APP_REDIRECT_FROM:-http://redirect.invalid}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    restart: unless-stopped
+
+  mailpit:
+    ports: !reset []
+
+  fsp-mock:
+    ports: !reset []
+    environment:
+      FSP_PUBLIC_BASE: https://${FSP_DOMAIN}
+      FSP_ALLOWED_REDIRECTS: https://${APP_DOMAIN}
+
+  backend:
+    ports: !reset []
+    environment:
+      PUBLIC_URL: https://${APP_DOMAIN}
+      CORS_ORIGINS: https://${APP_DOMAIN}
+      JWT_ISSUER: https://${APP_DOMAIN}/realms/draft
+      DEMO_MAILBOX_URL: https://${MAIL_DOMAIN}
+      FSP_OIDC_PUBLIC_BASE: https://${FSP_DOMAIN}
+
+  frontend:
+    ports: !reset []
+
+volumes:
+  caddy-data:
+  caddy-config:

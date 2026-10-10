@@ -1,0 +1,6 @@
+# Образ фронтенда из заранее собранного dist (npm run build на машине разработчика) — для слабых серверов,
+# где сборка Vite не помещается в память. Используется в deploy/docker-compose.sni.yml.
+FROM nginx:1.27-alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY dist /usr/share/nginx/html
+EXPOSE 80

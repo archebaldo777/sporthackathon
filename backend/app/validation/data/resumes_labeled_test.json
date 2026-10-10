@@ -1,0 +1,412 @@
+{
+ "description": "Отложенный (hold-out) набор: написан после доработки парсера на основном наборе и не использовался для его настройки. Разметка — по тем же правилам.",
+ "reference_date": "2026-10-05",
+ "items": [
+  {
+   "id": "t01",
+   "text": "Резюме: Бондаренко Игорь Михайлович\nBackend-разработчик Node.js\nНижний Новгород · igor.bondarenko.node@gmail.com · +7 (930) 712-44-05 · github.com/ibondarenko\n\nОпыт работы\n04/2020 – 01/2023 · ООО «ТрансЛог» · Node.js-разработчик\nREST API на Express и TypeScript, MongoDB, очереди на RabbitMQ.\n02/2023 – по н.в. · «Медиа Платформа» · Senior Backend Developer\nNestJS, PostgreSQL, Redis, микросервисы, Docker, деплой в AWS, GraphQL-шлюз.",
+   "gold": {
+    "name": "Бондаренко Игорь Михайлович",
+    "email": "igor.bondarenko.node@gmail.com",
+    "phone": "9307124405",
+    "telegram": null,
+    "github": "ibondarenko",
+    "city": "Нижний Новгород",
+    "specialization": "backend",
+    "experience_years": 6.4,
+    "skills": [
+     "Node.js",
+     "REST API",
+     "TypeScript",
+     "MongoDB",
+     "RabbitMQ",
+     "PostgreSQL",
+     "Redis",
+     "Микросервисы",
+     "Docker",
+     "Облака",
+     "GraphQL"
+    ]
+   }
+  },
+  {
+   "id": "t02",
+   "text": "Anna Kuzmina\nSenior Frontend Engineer\nSaint Petersburg · anna.kuzmina.fe@gmail.com · t.me/annakuz_fe\n\nExperience\nLead Frontend Developer — FinBank Online, Jun 2021 – Present\nNext.js and React 18, TypeScript, Redux Toolkit, design system in Storybook, unit tests with Jest, performance (Web Vitals), accessibility.\nFrontend Developer — Travel Startup, Oct 2018 – May 2021\nJavaScript (ES6+), React, CSS-in-JS, Webpack, REST and GraphQL APIs.",
+   "gold": {
+    "name": "Anna Kuzmina",
+    "email": "anna.kuzmina.fe@gmail.com",
+    "phone": null,
+    "telegram": "annakuz_fe",
+    "github": null,
+    "city": "Санкт-Петербург",
+    "specialization": "frontend",
+    "experience_years": 7.9,
+    "skills": [
+     "Next.js",
+     "React",
+     "TypeScript",
+     "Redux",
+     "Jest",
+     "JavaScript",
+     "CSS",
+     "Webpack",
+     "REST API",
+     "GraphQL"
+    ]
+   }
+  },
+  {
+   "id": "t03",
+   "text": "Юлия Сергеевна Комарова\nМладший аналитик данных\nТомск, julia.komarova.data@mail.ru, +7 913 888 01 02\n\nОпыт работы 1 год\nСтажировка → младший аналитик в ритейл-сети: SQL-запросы к PostgreSQL, отчёты в Excel и Google Sheets, визуализация в Yandex DataLens, расчёт продуктовых метрик (retention, конверсия). Python: pandas, matplotlib. Изучаю статистику и A/B-тестирование.",
+   "gold": {
+    "name": "Юлия Сергеевна Комарова",
+    "email": "julia.komarova.data@mail.ru",
+    "phone": "9138880102",
+    "telegram": null,
+    "github": null,
+    "city": "Томск",
+    "specialization": "data_analyst",
+    "experience_years": 1.0,
+    "skills": [
+     "SQL",
+     "PostgreSQL",
+     "Excel",
+     "Визуализация данных",
+     "Продуктовая аналитика",
+     "Python",
+     "Pandas",
+     "Статистика",
+     "A/B-тестирование"
+    ]
+   }
+  },
+  {
+   "id": "t04",
+   "text": "Dmitry Volkov — Machine Learning Engineer\nInnopolis, Russia | dmitry.volkov.ml@gmail.com | github.com/dvolkov-ml\n\nExperience\nML Engineer, Search & Ads, Mar 2022 – Present\n- Ranking models with CatBoost and PyTorch, offline metrics (NDCG, ROC-AUC), online A/B testing\n- Feature pipelines on Spark and Airflow, model serving with Docker and Kubernetes\nJunior Data Scientist, Telecom, Aug 2020 – Feb 2022\n- Churn prediction with scikit-learn, pandas, SQL",
+   "gold": {
+    "name": "Dmitry Volkov",
+    "email": "dmitry.volkov.ml@gmail.com",
+    "phone": null,
+    "telegram": null,
+    "github": "dvolkov-ml",
+    "city": "Иннополис",
+    "specialization": "ml",
+    "experience_years": 6.1,
+    "skills": [
+     "Машинное обучение",
+     "CatBoost",
+     "PyTorch",
+     "Метрики ML",
+     "A/B-тестирование",
+     "Spark",
+     "Airflow",
+     "Docker",
+     "Kubernetes",
+     "scikit-learn",
+     "Pandas",
+     "SQL"
+    ]
+   }
+  },
+  {
+   "id": "t05",
+   "text": "ДевОпс / системный инженер\nШевченко Артур\nЧелябинск, тел. +7 951 234 56 78, arthur.shev@yandex.ru\n\nОпыт работы 3 года 6 месяцев\nПоднимаю окружения в докере и кубере, пишу пайплайны в GitLab CI и GitHub Actions, автоматизирую на Ansible и Bash. Мониторинг на Zabbix и Prometheus. Linux-администрирование, Nginx, PostgreSQL (бэкапы, репликация).",
+   "gold": {
+    "name": "Шевченко Артур",
+    "email": "arthur.shev@yandex.ru",
+    "phone": "9512345678",
+    "telegram": null,
+    "github": null,
+    "city": "Челябинск",
+    "specialization": "devops",
+    "experience_years": 3.5,
+    "skills": [
+     "Docker",
+     "Kubernetes",
+     "CI/CD",
+     "Ansible",
+     "Bash",
+     "Мониторинг",
+     "Prometheus",
+     "Linux",
+     "Nginx",
+     "PostgreSQL"
+    ]
+   }
+  },
+  {
+   "id": "t06",
+   "text": "Тестировщик (Junior QA)\nМельникова Анна\nг. Пермь\nПочта: anna.melnikova.qa@gmail.com | Телеграм: @anna_mel_qa\n\nОпыт работы 10 месяцев — тестирование интернет-магазина: функциональное тестирование, регресс, баг-репорты в Jira, тест-кейсы, проверка API через Postman, логи в Kibana, простые SQL-запросы. Прошла курс по автоматизации на Python (pytest).",
+   "gold": {
+    "name": "Мельникова Анна",
+    "email": "anna.melnikova.qa@gmail.com",
+    "phone": null,
+    "telegram": "anna_mel_qa",
+    "github": null,
+    "city": "Пермь",
+    "specialization": "qa",
+    "experience_years": 0.8,
+    "skills": [
+     "Ручное тестирование",
+     "Тест-дизайн",
+     "Процессы QA",
+     "Postman",
+     "SQL",
+     "Python",
+     "Pytest",
+     "Автотесты"
+    ]
+   }
+  },
+  {
+   "id": "t07",
+   "text": "Егоров Святослав Андреевич\nSenior iOS Developer\nМосква — релокация не рассматриваю\negorov.ios@gmail.com · +7 (999) 404-50-60 · github.com/segorov\n\nОпыт работы — 9 лет\nSwift, Objective-C, UIKit, SwiftUI, Combine, CoreData, GCD, XCTest, CI (Fastlane, Bitrise), архитектуры VIPER/MVVM. Руководил командой из 4 iOS-разработчиков, проводил собеседования.",
+   "gold": {
+    "name": "Егоров Святослав Андреевич",
+    "email": "egorov.ios@gmail.com",
+    "phone": "9994045060",
+    "telegram": null,
+    "github": "segorov",
+    "city": "Москва",
+    "specialization": "mobile",
+    "experience_years": 9.0,
+    "skills": [
+     "Swift",
+     "Objective-C",
+     "iOS SDK",
+     "SwiftUI",
+     "CI/CD"
+    ]
+   }
+  },
+  {
+   "id": "t08",
+   "text": "AppSec-инженер\nРоманова Ксения Игоревна\nСанкт-Петербург, ksenia.romanova.appsec@proton.me, @kromanova_sec\n\nОпыт работы 5 лет 6 месяцев\nВнедрение SAST/DAST в CI/CD, threat modeling, ревью кода на уязвимости по OWASP ASVS, ручной пентест веб-приложений в Burp Suite, участие в программах bug bounty. Python и Go для автоматизации, Docker, Kubernetes (безопасность кластеров), базовая криптография (TLS, PKI).",
+   "gold": {
+    "name": "Романова Ксения Игоревна",
+    "email": "ksenia.romanova.appsec@proton.me",
+    "phone": null,
+    "telegram": "kromanova_sec",
+    "github": null,
+    "city": "Санкт-Петербург",
+    "specialization": "infosec",
+    "experience_years": 5.5,
+    "skills": [
+     "CI/CD",
+     "OWASP",
+     "Пентест",
+     "Burp Suite",
+     "Веб-безопасность",
+     "Python",
+     "Go",
+     "Docker",
+     "Kubernetes",
+     "Криптография"
+    ]
+   }
+  },
+  {
+   "id": "t09",
+   "text": "Java-разработчик (Middle)\nЛысенко Никита\nВолгоград | nikita.lysenko.java@gmail.com | +7 (961) 070-80-90\n\nОпыт работы 3 года 2 месяца\nSpring Boot, Spring Data, Hibernate, PostgreSQL, Kafka, Docker, k8s, JUnit, Mockito, Maven, Git. Писал сервисы биллинга и интеграции с платёжными шлюзами (REST, SOAP).",
+   "gold": {
+    "name": "Лысенко Никита",
+    "email": "nikita.lysenko.java@gmail.com",
+    "phone": "9610708090",
+    "telegram": null,
+    "github": null,
+    "city": "Волгоград",
+    "specialization": "backend",
+    "experience_years": 3.2,
+    "skills": [
+     "Java",
+     "Spring",
+     "PostgreSQL",
+     "Kafka",
+     "Docker",
+     "Kubernetes",
+     "Git",
+     "REST API"
+    ]
+   }
+  },
+  {
+   "id": "t10",
+   "text": "Python Developer (Junior)\nГусев Матвей\nЯрославль · matvey.gusev.py@gmail.com · tg: matvey_dev\n\nОпыт\nсент. 2024 — сейчас — «Студия Код», junior Python-разработчик: Django, DRF, PostgreSQL, Celery, Docker, pytest.\nПет-проекты: Telegram-бот на aiogram, парсер на requests + BeautifulSoup.",
+   "gold": {
+    "name": "Гусев Матвей",
+    "email": "matvey.gusev.py@gmail.com",
+    "phone": null,
+    "telegram": "matvey_dev",
+    "github": null,
+    "city": "Ярославль",
+    "specialization": "backend",
+    "experience_years": 2.1,
+    "skills": [
+     "Python",
+     "Django",
+     "PostgreSQL",
+     "Docker",
+     "Pytest",
+     "REST API"
+    ]
+   }
+  },
+  {
+   "id": "t11",
+   "text": "Разработчик C++ (высоконагруженные системы)\nКириллов Вадим\nНовосибирск · vadim.kirillov.cpp@gmail.com · github.com/vkirillov\n\nОпыт работы 7 лет\nC++17/20, STL, Boost, многопоточность, Linux, сетевое программирование (TCP/IP, epoll), профилирование, CMake, Python для скриптов. Разрабатывал биржевой шлюз с задержкой < 50 мкс, оптимизировал алгоритмы сопоставления заявок.",
+   "gold": {
+    "name": "Кириллов Вадим",
+    "email": "vadim.kirillov.cpp@gmail.com",
+    "phone": null,
+    "telegram": null,
+    "github": "vkirillov",
+    "city": "Новосибирск",
+    "specialization": "backend",
+    "experience_years": 7.0,
+    "skills": [
+     "C++",
+     "Linux",
+     "Сети",
+     "TCP/IP",
+     "Python",
+     "Алгоритмы"
+    ]
+   }
+  },
+  {
+   "id": "t12",
+   "text": "Data Analyst\nТкаченко Алина\nKrasnodar, Russia · alina.tkachenko.da@gmail.com · +7 918 600 70 80\n\nExperience: 2 years 5 months\nPower BI (DAX, Power Query), SQL (MS SQL, ClickHouse), Python (pandas, numpy), Excel. Built sales dashboards, cohort analysis, A/B test analysis, unit economics.",
+   "gold": {
+    "name": "Ткаченко Алина",
+    "email": "alina.tkachenko.da@gmail.com",
+    "phone": "9186007080",
+    "telegram": null,
+    "github": null,
+    "city": "Краснодар",
+    "specialization": "data_analyst",
+    "experience_years": 2.4,
+    "skills": [
+     "Power BI",
+     "SQL",
+     "ClickHouse",
+     "Python",
+     "Pandas",
+     "NumPy",
+     "Excel",
+     "Визуализация данных",
+     "A/B-тестирование",
+     "Продуктовая аналитика"
+    ]
+   }
+  },
+  {
+   "id": "t13",
+   "text": "Андроид-разработчик\nНосков Даниил\nИркутск, daniil.noskov.dev@gmail.com, 8 (950) 111-22-33\n\nОпыт работы 1 год 7 месяцев\nKotlin, немного Java, Android SDK, Jetpack Compose и XML-вёрстка, Retrofit, Room, корутины, Dagger Hilt. Опубликовал 2 приложения в Google Play и RuStore.",
+   "gold": {
+    "name": "Носков Даниил",
+    "email": "daniil.noskov.dev@gmail.com",
+    "phone": "9501112233",
+    "telegram": null,
+    "github": null,
+    "city": "Иркутск",
+    "specialization": "mobile",
+    "experience_years": 1.6,
+    "skills": [
+     "Kotlin",
+     "Java",
+     "Android SDK",
+     "Jetpack Compose",
+     "Coroutines"
+    ]
+   }
+  },
+  {
+   "id": "t14",
+   "text": "Голованова Татьяна\nFrontend (Vue / Nuxt) — middle\nКалуга (удалёнка) | tatiana.golovanova@inbox.ru | @tgolovanova\n\nОпыт работы 3 года\nVue 2/3, Nuxt, Pinia/Vuex, TypeScript, SCSS, БЭМ, Vite, Jest + Vue Test Utils, Storybook, Figma. Делаю SPA и SSR-витрины для интернет-магазинов, слежу за доступностью и Lighthouse.",
+   "gold": {
+    "name": "Голованова Татьяна",
+    "email": "tatiana.golovanova@inbox.ru",
+    "phone": null,
+    "telegram": "tgolovanova",
+    "github": null,
+    "city": "Калуга",
+    "specialization": "frontend",
+    "experience_years": 3.0,
+    "skills": [
+     "Vue",
+     "TypeScript",
+     "CSS",
+     "Vite",
+     "Jest",
+     "Figma"
+    ]
+   }
+  },
+  {
+   "id": "t15",
+   "text": "Junior ML Engineer (Computer Vision)\nСидоренко Георгий\nМосква · georgy.sidorenko@gmail.com · github.com/gsidorenko\n\nОпыт работы 1 год 3 месяца\nОбучение моделей детекции и классификации изображений: TensorFlow/Keras, PyTorch, OpenCV. Аугментации, метрики precision/recall/F1, deep learning, Python, NumPy, Docker. Kaggle: бронза в соревновании по сегментации.",
+   "gold": {
+    "name": "Сидоренко Георгий",
+    "email": "georgy.sidorenko@gmail.com",
+    "phone": null,
+    "telegram": null,
+    "github": "gsidorenko",
+    "city": "Москва",
+    "specialization": "ml",
+    "experience_years": 1.25,
+    "skills": [
+     "Машинное обучение",
+     "Computer Vision",
+     "TensorFlow",
+     "PyTorch",
+     "Метрики ML",
+     "Deep Learning",
+     "Python",
+     "NumPy",
+     "Docker"
+    ]
+   }
+  },
+  {
+   "id": "t16",
+   "text": "Специалист по защите информации\nАлексеева Марина Викторовна\nКазань | marina.alekseeva.ib@yandex.ru | +7 (843) 500-60-70\n\nОпыт работы 6 лет\nЭксплуатация SIEM и IDS/IPS, разбор инцидентов ИБ, аудит соответствия 152-ФЗ и требованиям ФСТЭК, настройка межсетевых экранов, сетевые технологии (VLAN, VPN, TCP/IP), криптографическая защита (СКЗИ), Linux и Windows Server.",
+   "gold": {
+    "name": "Алексеева Марина Викторовна",
+    "email": "marina.alekseeva.ib@yandex.ru",
+    "phone": "8435006070",
+    "telegram": null,
+    "github": null,
+    "city": "Казань",
+    "specialization": "infosec",
+    "experience_years": 6.0,
+    "skills": [
+     "SIEM",
+     "Анализ инцидентов",
+     "Сети",
+     "TCP/IP",
+     "Криптография",
+     "Linux"
+    ]
+   }
+  }
+ ],
+ "first_run": {
+  "note": "Замер до любых правок парсера по этому набору (настоящий hold-out).",
+  "field_accuracy": {
+   "name": 0.938,
+   "email": 1.0,
+   "phone": 1.0,
+   "telegram": 1.0,
+   "github": 1.0,
+   "city": 1.0,
+   "specialization": 0.938,
+   "experience_years": 0.812
+  },
+  "skills": {
+   "precision": 0.967,
+   "recall": 0.908,
+   "f1": 0.937
+  },
+  "experience_mae": 0.26
+ }
+}

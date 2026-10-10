@@ -1,0 +1,2801 @@
+{
+ "generated_at": "2026-10-08 10:07",
+ "fast": false,
+ "testing": {
+  "population": 1200,
+  "config": {
+   "min_items": 8,
+   "max_items": 22,
+   "coverage_items": 14,
+   "decision_confidence": 0.85,
+   "stop_rule": "classification"
+  },
+  "accuracy": {
+   "exact_grade_agreement": 0.81,
+   "within_one_grade": 1.0,
+   "self_declared_agreement": 0.735,
+   "kappa": 0.739,
+   "kappa_weighted": 0.903,
+   "theta_corr_true": 0.94,
+   "theta_rmse": 0.393,
+   "theta_bias": 0.003,
+   "mean_se": 0.406,
+   "mean_items": 14.84,
+   "decision_sensitivity": 0.924,
+   "decision_specificity": 0.767,
+   "exact_agreement_far_from_cuts": 0.903,
+   "by_distance_to_cut": [
+    {
+     "range": "0–0.1",
+     "share": 0.148,
+     "accuracy": 0.556
+    },
+    {
+     "range": "0.1–0.25",
+     "share": 0.233,
+     "accuracy": 0.724
+    },
+    {
+     "range": "0.25–0.5",
+     "share": 0.383,
+     "accuracy": 0.857
+    },
+    {
+     "range": "> 0.5",
+     "share": 0.236,
+     "accuracy": 0.979
+    }
+   ],
+   "inflated_share": 0.188,
+   "inflated_rejected": 0.853,
+   "inflated_exact": 0.769,
+   "honest_confirmed": 0.817,
+   "items_distribution": {
+    "p10": 8,
+    "median": 14,
+    "p90": 22,
+    "share_extended": 0.467
+   },
+   "confusion": {
+    "intern": {
+     "intern": 129,
+     "junior": 32,
+     "middle": 0,
+     "senior": 0
+    },
+    "junior": {
+     "intern": 32,
+     "junior": 272,
+     "middle": 54,
+     "senior": 0
+    },
+    "middle": {
+     "intern": 0,
+     "junior": 34,
+     "middle": 313,
+     "senior": 46
+    },
+    "senior": {
+     "intern": 0,
+     "junior": 0,
+     "middle": 30,
+     "senior": 258
+    }
+   }
+  },
+  "consistency": {
+   "theta_test_retest_r": 0.882,
+   "grade_agreement": 0.728,
+   "grade_kappa": 0.626,
+   "grade_kappa_weighted": 0.855,
+   "decision_agreement": 0.856,
+   "within_one_grade": 0.996,
+   "form_overlap_same_candidate": 0.357
+  },
+  "discrimination": {
+   "items_evaluated": 197,
+   "median_point_biserial": 0.53,
+   "share_rpb_above_0_2": 0.98,
+   "adjacent_grade_auc": {
+    "intern→junior": 0.917,
+    "junior→middle": 0.943,
+    "middle→senior": 0.941
+   },
+   "mean_theta_by_true_grade": {
+    "intern": -1.423,
+    "junior": -0.462,
+    "middle": 0.497,
+    "senior": 1.584
+   }
+  },
+  "exposure": {
+   "max_exposure_rate": 0.289,
+   "share_templates_above_target": 0.013,
+   "templates_used": 225,
+   "mean_form_overlap_between_candidates": 0.244
+  }
+ },
+ "variants": {
+  "seeds_per_template": 150,
+  "median_unique_share": 0.91,
+  "share_templates_fully_unique": 0.372,
+  "mean_pairwise_collision": 0.0087,
+  "by_method": {
+   "parametric": {
+    "templates": 148,
+    "median_unique_share": 1.0
+   },
+   "pool": {
+    "templates": 78,
+    "median_unique_share": 0.673
+   }
+  },
+  "worst": [
+   {
+    "template": "mobile.memory",
+    "unique_share": 0.02666666666666667,
+    "collision": 0.24519015659955257,
+    "method": "pool"
+   },
+   {
+    "template": "viz.misleading",
+    "unique_share": 0.10666666666666667,
+    "collision": 0.05906040268456376,
+    "method": "pool"
+   },
+   {
+    "template": "linux.exit_codes",
+    "unique_share": 0.10666666666666667,
+    "collision": 0.06076062639821029,
+    "method": "parametric"
+   },
+   {
+    "template": "qa.severity_priority",
+    "unique_share": 0.10666666666666667,
+    "collision": 0.06371364653243848,
+    "method": "pool"
+   },
+   {
+    "template": "perf.types",
+    "unique_share": 0.10666666666666667,
+    "collision": 0.06102908277404922,
+    "method": "pool"
+   }
+  ]
+ },
+ "leak_attack": {
+  "none": {
+   "pass_rate_middle": 0.067,
+   "mean_theta": -0.475,
+   "share_items_answered_from_leak": 0.0
+  },
+  "static": {
+   "pass_rate_middle": 0.967,
+   "mean_theta": 0.708,
+   "share_items_answered_from_leak": 0.519
+  },
+  "parametric_reuse": {
+   "pass_rate_middle": 0.18,
+   "mean_theta": -0.336,
+   "share_items_answered_from_leak": 0.093
+  },
+  "parametric": {
+   "pass_rate_middle": 0.053,
+   "mean_theta": -0.503,
+   "share_items_answered_from_leak": 0.0
+  },
+  "theta_inflation_static": 1.183,
+  "theta_inflation_parametric": -0.028,
+  "theta_inflation_parametric_reuse": 0.139,
+  "pass_gain_parametric_pp": -1.4
+ },
+ "integrity": {
+  "lz_threshold": -2.5,
+  "honest_flagged": 0.0063,
+  "help_cheaters_flagged": 0.053,
+  "help_cheaters_pass_middle": 0.86,
+  "help_cheaters_pass_unflagged": 0.813,
+  "n_honest": 800,
+  "n_cheaters": 300
+ },
+ "exposure_ablation": {
+  "randomesque": {
+   "max_exposure": 0.492,
+   "top5_mean_exposure": 0.444,
+   "templates_used": 65,
+   "mean_overlap_between_candidates": 0.181
+  },
+  "max_info": {
+   "max_exposure": 1.0,
+   "top5_mean_exposure": 0.771,
+   "templates_used": 50,
+   "mean_overlap_between_candidates": 0.328
+  }
+ },
+ "fixed_form": {
+  "cat": {
+   "grade_accuracy": 0.808,
+   "mean_se": 0.419
+  },
+  "fixed": {
+   "grade_accuracy": 0.708,
+   "mean_se": 0.517
+  },
+  "items": 14
+ },
+ "calibration": {
+  "templates_calibrated": 181,
+  "rmse_b_prior": 0.299,
+  "rmse_b_after": 0.192,
+  "drift_simulated": 8,
+  "drift_detected": 7,
+  "false_alarms": 6
+ },
+ "stop_rule_ablation": {
+  "precision_se": {
+   "exact": 0.808,
+   "far_from_cuts": 0.878,
+   "decision": 0.892,
+   "retest_agreement": 0.726,
+   "mean_items": 15.4,
+   "max_items": 16
+  },
+  "classification": {
+   "exact": 0.83,
+   "far_from_cuts": 0.903,
+   "decision": 0.906,
+   "retest_agreement": 0.749,
+   "mean_items": 14.6,
+   "max_items": 22
+  }
+ },
+ "resume_parsing": {
+  "dev": {
+   "resumes": 24,
+   "skills_labeled": 234,
+   "field_accuracy": {
+    "name": 1.0,
+    "email": 1.0,
+    "phone": 1.0,
+    "telegram": 1.0,
+    "github": 1.0,
+    "city": 1.0,
+    "specialization": 0.958,
+    "experience_years": 1.0
+   },
+   "skills": {
+    "precision": 0.983,
+    "recall": 0.996,
+    "f1": 0.989
+   },
+   "experience_mae": 0.0,
+   "errors": [
+    {
+     "id": "r05",
+     "errors": [],
+     "missed_skills": [],
+     "extra_skills": [
+      "SRE"
+     ],
+     "pred_spec": "devops",
+     "gold_spec": "devops"
+    },
+    {
+     "id": "r09",
+     "errors": [],
+     "missed_skills": [],
+     "extra_skills": [
+      "Clean Architecture"
+     ],
+     "pred_spec": "mobile",
+     "gold_spec": "mobile"
+    },
+    {
+     "id": "r13",
+     "errors": [
+      "specialization"
+     ],
+     "missed_skills": [],
+     "extra_skills": [],
+     "pred_spec": "frontend",
+     "gold_spec": "backend"
+    },
+    {
+     "id": "r21",
+     "errors": [],
+     "missed_skills": [],
+     "extra_skills": [
+      "Postman",
+      "REST API"
+     ],
+     "pred_spec": "qa",
+     "gold_spec": "qa"
+    },
+    {
+     "id": "r23",
+     "errors": [],
+     "missed_skills": [
+      "Метрики ML"
+     ],
+     "extra_skills": [],
+     "pred_spec": "ml",
+     "gold_spec": "ml"
+    }
+   ]
+  },
+  "holdout": {
+   "resumes": 16,
+   "skills_labeled": 131,
+   "field_accuracy": {
+    "name": 1.0,
+    "email": 1.0,
+    "phone": 1.0,
+    "telegram": 1.0,
+    "github": 1.0,
+    "city": 1.0,
+    "specialization": 0.938,
+    "experience_years": 1.0
+   },
+   "skills": {
+    "precision": 0.977,
+    "recall": 0.969,
+    "f1": 0.973
+   },
+   "experience_mae": 0.0,
+   "errors": [
+    {
+     "id": "t03",
+     "errors": [],
+     "missed_skills": [
+      "Визуализация данных"
+     ],
+     "extra_skills": [
+      "Superset"
+     ],
+     "pred_spec": "data_analyst",
+     "gold_spec": "data_analyst"
+    },
+    {
+     "id": "t06",
+     "errors": [],
+     "missed_skills": [
+      "Автотесты"
+     ],
+     "extra_skills": [],
+     "pred_spec": "qa",
+     "gold_spec": "qa"
+    },
+    {
+     "id": "t07",
+     "errors": [],
+     "missed_skills": [
+      "CI/CD"
+     ],
+     "extra_skills": [
+      "Clean Architecture"
+     ],
+     "pred_spec": "mobile",
+     "gold_spec": "mobile"
+    },
+    {
+     "id": "t08",
+     "errors": [],
+     "missed_skills": [
+      "Веб-безопасность"
+     ],
+     "extra_skills": [],
+     "pred_spec": "infosec",
+     "gold_spec": "infosec"
+    },
+    {
+     "id": "t11",
+     "errors": [
+      "specialization"
+     ],
+     "missed_skills": [],
+     "extra_skills": [],
+     "pred_spec": "infosec",
+     "gold_spec": "backend"
+    },
+    {
+     "id": "t13",
+     "errors": [],
+     "missed_skills": [],
+     "extra_skills": [
+      "HTML"
+     ],
+     "pred_spec": "mobile",
+     "gold_spec": "mobile"
+    }
+   ]
+  },
+  "holdout_first_run": {
+   "note": "Замер до любых правок парсера по этому набору (настоящий hold-out).",
+   "field_accuracy": {
+    "name": 0.938,
+    "email": 1.0,
+    "phone": 1.0,
+    "telegram": 1.0,
+    "github": 1.0,
+    "city": 1.0,
+    "specialization": 0.938,
+    "experience_years": 0.812
+   },
+   "skills": {
+    "precision": 0.967,
+    "recall": 0.908,
+    "f1": 0.937
+   },
+   "experience_mae": 0.26
+  }
+ },
+ "matching": {
+  "needs_evaluated": 217,
+  "pool_size": 620,
+  "summary": {
+   "keyword_resume_baseline": {
+    "p@5": 0.586,
+    "p@10": 0.52,
+    "ndcg@10": 0.538,
+    "mrr": 0.78,
+    "recall@30": 0.689,
+    "noise@10": 0.159
+   },
+   "self_declared_category": {
+    "p@5": 0.732,
+    "p@10": 0.619,
+    "ndcg@10": 0.681,
+    "mrr": 0.911,
+    "recall@30": 0.864,
+    "noise@10": 0.072
+   },
+   "ours_full": {
+    "p@5": 0.848,
+    "p@10": 0.718,
+    "ndcg@10": 0.793,
+    "mrr": 0.979,
+    "recall@30": 0.908,
+    "noise@10": 0.057
+   },
+   "ours_expert_weights": {
+    "p@5": 0.828,
+    "p@10": 0.707,
+    "ndcg@10": 0.772,
+    "mrr": 0.969,
+    "recall@30": 0.901,
+    "noise@10": 0.077
+   },
+   "ours_without_fsp": {
+    "p@5": 0.844,
+    "p@10": 0.714,
+    "ndcg@10": 0.79,
+    "mrr": 0.977,
+    "recall@30": 0.907,
+    "noise@10": 0.057
+   },
+   "ours_without_adjacent": {
+    "p@5": 0.844,
+    "p@10": 0.715,
+    "ndcg@10": 0.787,
+    "mrr": 0.979,
+    "recall@30": 0.775,
+    "noise@10": 0.045
+   }
+  },
+  "spread_between_need_sets": {
+   "keyword_resume_baseline": {
+    "ndcg@10_sd": 0.013,
+    "p@10_sd": 0.013
+   },
+   "self_declared_category": {
+    "ndcg@10_sd": 0.009,
+    "p@10_sd": 0.015
+   },
+   "ours_full": {
+    "ndcg@10_sd": 0.014,
+    "p@10_sd": 0.02
+   },
+   "ours_expert_weights": {
+    "ndcg@10_sd": 0.013,
+    "p@10_sd": 0.023
+   },
+   "ours_without_fsp": {
+    "ndcg@10_sd": 0.019,
+    "p@10_sd": 0.019
+   },
+   "ours_without_adjacent": {
+    "ndcg@10_sd": 0.019,
+    "p@10_sd": 0.023
+   }
+  },
+  "need_sets": 5,
+  "ours_beats_keyword_share": 0.991,
+  "per_need": [
+   {
+    "need": "Backend · middle · C#, REST API, RabbitMQ",
+    "relevant": 4,
+    "keyword_resume_baseline": 0.698,
+    "self_declared_category": 0.659,
+    "ours_full": 0.908,
+    "ours_expert_weights": 0.908,
+    "ours_without_fsp": 0.914,
+    "ours_without_adjacent": 0.908
+   },
+   {
+    "need": "Backend · middle · C#, Git, PostgreSQL",
+    "relevant": 20,
+    "keyword_resume_baseline": 0.518,
+    "self_declared_category": 0.47,
+    "ours_full": 0.64,
+    "ours_expert_weights": 0.614,
+    "ours_without_fsp": 0.642,
+    "ours_without_adjacent": 0.64
+   },
+   {
+    "need": "Backend · senior · PHP, Laravel, Redis",
+    "relevant": 3,
+    "keyword_resume_baseline": 0.92,
+    "self_declared_category": 1.0,
+    "ours_full": 0.943,
+    "ours_expert_weights": 0.944,
+    "ours_without_fsp": 0.936,
+    "ours_without_adjacent": 0.943
+   },
+   {
+    "need": "Frontend · intern/junior · JavaScript, Vite, TypeScript",
+    "relevant": 18,
+    "keyword_resume_baseline": 0.542,
+    "self_declared_category": 0.772,
+    "ours_full": 0.693,
+    "ours_expert_weights": 0.719,
+    "ours_without_fsp": 0.693,
+    "ours_without_adjacent": 0.693
+   },
+   {
+    "need": "Frontend · junior/middle · JavaScript, Git, Vue",
+    "relevant": 29,
+    "keyword_resume_baseline": 0.517,
+    "self_declared_category": 0.77,
+    "ours_full": 0.749,
+    "ours_expert_weights": 0.653,
+    "ours_without_fsp": 0.696,
+    "ours_without_adjacent": 0.749
+   },
+   {
+    "need": "Frontend · junior/middle · TypeScript, HTML, CSS",
+    "relevant": 34,
+    "keyword_resume_baseline": 0.549,
+    "self_declared_category": 0.64,
+    "ours_full": 0.712,
+    "ours_expert_weights": 0.662,
+    "ours_without_fsp": 0.709,
+    "ours_without_adjacent": 0.712
+   },
+   {
+    "need": "Frontend · middle · TypeScript, CSS, Angular",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.634,
+    "self_declared_category": 0.724,
+    "ours_full": 0.771,
+    "ours_expert_weights": 0.771,
+    "ours_without_fsp": 0.771,
+    "ours_without_adjacent": 0.771
+   },
+   {
+    "need": "Frontend · middle · JavaScript, Vite, TypeScript",
+    "relevant": 47,
+    "keyword_resume_baseline": 0.583,
+    "self_declared_category": 0.771,
+    "ours_full": 0.771,
+    "ours_expert_weights": 0.763,
+    "ours_without_fsp": 0.889,
+    "ours_without_adjacent": 0.771
+   },
+   {
+    "need": "Frontend · senior · JavaScript, React, Jest",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.262,
+    "self_declared_category": 0.531,
+    "ours_full": 0.86,
+    "ours_expert_weights": 0.895,
+    "ours_without_fsp": 0.863,
+    "ours_without_adjacent": 0.86
+   },
+   {
+    "need": "Mobile · junior · Swift, Git, REST API",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.573,
+    "self_declared_category": 0.941,
+    "ours_full": 0.718,
+    "ours_expert_weights": 0.676,
+    "ours_without_fsp": 0.728,
+    "ours_without_adjacent": 0.718
+   },
+   {
+    "need": "Mobile · junior/middle · Swift, Git, Clean Architecture",
+    "relevant": 21,
+    "keyword_resume_baseline": 0.705,
+    "self_declared_category": 0.878,
+    "ours_full": 0.827,
+    "ours_expert_weights": 0.831,
+    "ours_without_fsp": 0.942,
+    "ours_without_adjacent": 0.827
+   },
+   {
+    "need": "Mobile · middle · Kotlin, Git, Jetpack Compose",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.534,
+    "self_declared_category": 0.684,
+    "ours_full": 0.738,
+    "ours_expert_weights": 0.724,
+    "ours_without_fsp": 0.741,
+    "ours_without_adjacent": 0.738
+   },
+   {
+    "need": "Mobile · middle · Swift, SwiftUI, iOS SDK",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.626,
+    "self_declared_category": 0.609,
+    "ours_full": 0.93,
+    "ours_expert_weights": 0.89,
+    "ours_without_fsp": 0.944,
+    "ours_without_adjacent": 0.93
+   },
+   {
+    "need": "Mobile · senior · Kotlin, Git, Clean Architecture",
+    "relevant": 5,
+    "keyword_resume_baseline": 0.678,
+    "self_declared_category": 0.94,
+    "ours_full": 0.917,
+    "ours_expert_weights": 0.884,
+    "ours_without_fsp": 0.917,
+    "ours_without_adjacent": 0.917
+   },
+   {
+    "need": "ML · intern/junior · Python, Pandas, NumPy",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.517,
+    "self_declared_category": 0.696,
+    "ours_full": 0.789,
+    "ours_expert_weights": 0.766,
+    "ours_without_fsp": 0.787,
+    "ours_without_adjacent": 0.789
+   },
+   {
+    "need": "ML · junior · Python, Deep Learning, CatBoost",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.356,
+    "self_declared_category": 0.421,
+    "ours_full": 0.897,
+    "ours_expert_weights": 0.857,
+    "ours_without_fsp": 0.897,
+    "ours_without_adjacent": 0.897
+   },
+   {
+    "need": "ML · junior · Python, NumPy, scikit-learn",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.371,
+    "self_declared_category": 0.545,
+    "ours_full": 0.852,
+    "ours_expert_weights": 0.849,
+    "ours_without_fsp": 0.83,
+    "ours_without_adjacent": 0.852
+   },
+   {
+    "need": "ML · middle/senior · Python, Deep Learning, Машинное обучение",
+    "relevant": 20,
+    "keyword_resume_baseline": 0.572,
+    "self_declared_category": 0.768,
+    "ours_full": 0.961,
+    "ours_expert_weights": 0.933,
+    "ours_without_fsp": 0.959,
+    "ours_without_adjacent": 0.961
+   },
+   {
+    "need": "ML · middle · Python, PyTorch, SQL",
+    "relevant": 24,
+    "keyword_resume_baseline": 0.58,
+    "self_declared_category": 0.601,
+    "ours_full": 0.701,
+    "ours_expert_weights": 0.665,
+    "ours_without_fsp": 0.72,
+    "ours_without_adjacent": 0.701
+   },
+   {
+    "need": "ML · senior · Python, scikit-learn, SQL",
+    "relevant": 7,
+    "keyword_resume_baseline": 0.586,
+    "self_declared_category": 0.549,
+    "ours_full": 0.909,
+    "ours_expert_weights": 0.86,
+    "ours_without_fsp": 0.886,
+    "ours_without_adjacent": 0.909
+   },
+   {
+    "need": "Data Analyst · junior · SQL, A/B-тестирование, Pandas",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.518,
+    "self_declared_category": 0.632,
+    "ours_full": 0.819,
+    "ours_expert_weights": 0.789,
+    "ours_without_fsp": 0.792,
+    "ours_without_adjacent": 0.819
+   },
+   {
+    "need": "Data Analyst · junior/middle · SQL, ClickHouse, Статистика",
+    "relevant": 19,
+    "keyword_resume_baseline": 0.359,
+    "self_declared_category": 0.868,
+    "ours_full": 0.877,
+    "ours_expert_weights": 0.878,
+    "ours_without_fsp": 0.873,
+    "ours_without_adjacent": 0.877
+   },
+   {
+    "need": "Data Analyst · middle/senior · SQL, Excel, Продуктовая аналитика",
+    "relevant": 21,
+    "keyword_resume_baseline": 0.561,
+    "self_declared_category": 0.641,
+    "ours_full": 0.831,
+    "ours_expert_weights": 0.828,
+    "ours_without_fsp": 0.831,
+    "ours_without_adjacent": 0.831
+   },
+   {
+    "need": "Data Analyst · middle · SQL, Power BI, Tableau",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.487,
+    "self_declared_category": 0.409,
+    "ours_full": 0.809,
+    "ours_expert_weights": 0.778,
+    "ours_without_fsp": 0.815,
+    "ours_without_adjacent": 0.809
+   },
+   {
+    "need": "Data Analyst · senior · SQL, Tableau, Статистика",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.317,
+    "self_declared_category": 0.54,
+    "ours_full": 0.92,
+    "ours_expert_weights": 0.893,
+    "ours_without_fsp": 0.923,
+    "ours_without_adjacent": 0.92
+   },
+   {
+    "need": "DevOps · intern/junior · Linux, Ansible, Bash",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.623,
+    "self_declared_category": 0.574,
+    "ours_full": 0.506,
+    "ours_expert_weights": 0.53,
+    "ours_without_fsp": 0.544,
+    "ours_without_adjacent": 0.506
+   },
+   {
+    "need": "DevOps · junior · Linux, CI/CD, Docker",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.604,
+    "self_declared_category": 0.855,
+    "ours_full": 0.834,
+    "ours_expert_weights": 0.753,
+    "ours_without_fsp": 0.83,
+    "ours_without_adjacent": 0.834
+   },
+   {
+    "need": "DevOps · junior · Linux, Bash, Python",
+    "relevant": 7,
+    "keyword_resume_baseline": 0.281,
+    "self_declared_category": 0.732,
+    "ours_full": 0.812,
+    "ours_expert_weights": 0.782,
+    "ours_without_fsp": 0.753,
+    "ours_without_adjacent": 0.812
+   },
+   {
+    "need": "DevOps · middle · Linux, Сети, Ansible",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.628,
+    "self_declared_category": 0.741,
+    "ours_full": 0.704,
+    "ours_expert_weights": 0.698,
+    "ours_without_fsp": 0.701,
+    "ours_without_adjacent": 0.704
+   },
+   {
+    "need": "DevOps · middle/senior · Linux, Сети, Kubernetes",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.368,
+    "self_declared_category": 0.439,
+    "ours_full": 0.736,
+    "ours_expert_weights": 0.66,
+    "ours_without_fsp": 0.739,
+    "ours_without_adjacent": 0.736
+   },
+   {
+    "need": "DevOps · senior · Linux, Prometheus, CI/CD",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.511,
+    "self_declared_category": 0.826,
+    "ours_full": 0.768,
+    "ours_expert_weights": 0.742,
+    "ours_without_fsp": 0.75,
+    "ours_without_adjacent": 0.768
+   },
+   {
+    "need": "QA · intern/junior · Тест-дизайн, Selenium, JMeter",
+    "relevant": 15,
+    "keyword_resume_baseline": 0.502,
+    "self_declared_category": 0.802,
+    "ours_full": 0.822,
+    "ours_expert_weights": 0.754,
+    "ours_without_fsp": 0.822,
+    "ours_without_adjacent": 0.822
+   },
+   {
+    "need": "QA · junior · Тест-дизайн, SQL, Автотесты",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.488,
+    "self_declared_category": 0.792,
+    "ours_full": 0.818,
+    "ours_expert_weights": 0.808,
+    "ours_without_fsp": 0.814,
+    "ours_without_adjacent": 0.818
+   },
+   {
+    "need": "QA · junior · Тест-дизайн, SQL, Ручное тестирование",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.61,
+    "self_declared_category": 0.701,
+    "ours_full": 0.807,
+    "ours_expert_weights": 0.786,
+    "ours_without_fsp": 0.807,
+    "ours_without_adjacent": 0.807
+   },
+   {
+    "need": "QA · middle · Тест-дизайн, Автотесты, JavaScript",
+    "relevant": 30,
+    "keyword_resume_baseline": 0.541,
+    "self_declared_category": 0.781,
+    "ours_full": 0.869,
+    "ours_expert_weights": 0.881,
+    "ours_without_fsp": 0.859,
+    "ours_without_adjacent": 0.869
+   },
+   {
+    "need": "QA · middle · Тест-дизайн, SQL, JavaScript",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.542,
+    "self_declared_category": 0.647,
+    "ours_full": 0.863,
+    "ours_expert_weights": 0.863,
+    "ours_without_fsp": 0.859,
+    "ours_without_adjacent": 0.863
+   },
+   {
+    "need": "QA · senior · Тест-дизайн, Автотесты, JavaScript",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.418,
+    "self_declared_category": 0.749,
+    "ours_full": 0.817,
+    "ours_expert_weights": 0.787,
+    "ours_without_fsp": 0.847,
+    "ours_without_adjacent": 0.817
+   },
+   {
+    "need": "InfoSec · intern · OWASP, Анализ инцидентов, Python",
+    "relevant": 3,
+    "keyword_resume_baseline": 0.363,
+    "self_declared_category": 0.812,
+    "ours_full": 0.662,
+    "ours_expert_weights": 0.644,
+    "ours_without_fsp": 0.662,
+    "ours_without_adjacent": 0.44
+   },
+   {
+    "need": "InfoSec · junior · OWASP, Linux, SIEM",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.727,
+    "self_declared_category": 0.762,
+    "ours_full": 0.784,
+    "ours_expert_weights": 0.768,
+    "ours_without_fsp": 0.785,
+    "ours_without_adjacent": 0.784
+   },
+   {
+    "need": "InfoSec · junior/middle · OWASP, Пентест, CTF",
+    "relevant": 24,
+    "keyword_resume_baseline": 0.558,
+    "self_declared_category": 0.758,
+    "ours_full": 0.77,
+    "ours_expert_weights": 0.639,
+    "ours_without_fsp": 0.723,
+    "ours_without_adjacent": 0.77
+   },
+   {
+    "need": "InfoSec · middle · OWASP, Сети, Python",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.346,
+    "self_declared_category": 0.56,
+    "ours_full": 0.653,
+    "ours_expert_weights": 0.653,
+    "ours_without_fsp": 0.653,
+    "ours_without_adjacent": 0.653
+   },
+   {
+    "need": "InfoSec · middle · OWASP, SIEM, Анализ инцидентов",
+    "relevant": 7,
+    "keyword_resume_baseline": 0.472,
+    "self_declared_category": 0.556,
+    "ours_full": 0.663,
+    "ours_expert_weights": 0.663,
+    "ours_without_fsp": 0.654,
+    "ours_without_adjacent": 0.663
+   },
+   {
+    "need": "InfoSec · senior · OWASP, Криптография, Пентест",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.719,
+    "self_declared_category": 0.76,
+    "ours_full": 0.932,
+    "ours_expert_weights": 0.932,
+    "ours_without_fsp": 0.97,
+    "ours_without_adjacent": 0.904
+   },
+   {
+    "need": "Backend · junior/middle · PHP, MySQL, Redis",
+    "relevant": 3,
+    "keyword_resume_baseline": 0.556,
+    "self_declared_category": 0.526,
+    "ours_full": 0.711,
+    "ours_expert_weights": 0.768,
+    "ours_without_fsp": 0.666,
+    "ours_without_adjacent": 0.711
+   },
+   {
+    "need": "Backend · junior · Go, Redis, Kafka",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.22,
+    "self_declared_category": 0.583,
+    "ours_full": 0.773,
+    "ours_expert_weights": 0.752,
+    "ours_without_fsp": 0.59,
+    "ours_without_adjacent": 0.773
+   },
+   {
+    "need": "Backend · middle · Python, Redis, Django",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.395,
+    "self_declared_category": 0.627,
+    "ours_full": 0.836,
+    "ours_expert_weights": 0.804,
+    "ours_without_fsp": 0.733,
+    "ours_without_adjacent": 0.836
+   },
+   {
+    "need": "Backend · middle/senior · Go, Kubernetes, gRPC",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.603,
+    "self_declared_category": 0.428,
+    "ours_full": 0.762,
+    "ours_expert_weights": 0.76,
+    "ours_without_fsp": 0.765,
+    "ours_without_adjacent": 0.762
+   },
+   {
+    "need": "Backend · senior · Python, Django, Git",
+    "relevant": 4,
+    "keyword_resume_baseline": 0.457,
+    "self_declared_category": 0.592,
+    "ours_full": 0.653,
+    "ours_expert_weights": 0.719,
+    "ours_without_fsp": 0.701,
+    "ours_without_adjacent": 0.653
+   },
+   {
+    "need": "Frontend · junior · JavaScript, React, HTML",
+    "relevant": 16,
+    "keyword_resume_baseline": 0.58,
+    "self_declared_category": 0.686,
+    "ours_full": 0.784,
+    "ours_expert_weights": 0.731,
+    "ours_without_fsp": 0.782,
+    "ours_without_adjacent": 0.784
+   },
+   {
+    "need": "Frontend · middle · JavaScript, Redux, Next.js",
+    "relevant": 25,
+    "keyword_resume_baseline": 0.369,
+    "self_declared_category": 0.595,
+    "ours_full": 0.741,
+    "ours_expert_weights": 0.747,
+    "ours_without_fsp": 0.744,
+    "ours_without_adjacent": 0.741
+   },
+   {
+    "need": "Frontend · middle/senior · TypeScript, Angular, HTML",
+    "relevant": 19,
+    "keyword_resume_baseline": 0.391,
+    "self_declared_category": 0.617,
+    "ours_full": 0.79,
+    "ours_expert_weights": 0.778,
+    "ours_without_fsp": 0.787,
+    "ours_without_adjacent": 0.79
+   },
+   {
+    "need": "Frontend · senior · JavaScript, Jest, Redux",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.571,
+    "self_declared_category": 0.572,
+    "ours_full": 0.82,
+    "ours_expert_weights": 0.796,
+    "ours_without_fsp": 0.888,
+    "ours_without_adjacent": 0.82
+   },
+   {
+    "need": "Mobile · junior · Dart, REST API, Git",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.543,
+    "self_declared_category": 0.647,
+    "ours_full": 0.562,
+    "ours_expert_weights": 0.562,
+    "ours_without_fsp": 0.562,
+    "ours_without_adjacent": 0.562
+   },
+   {
+    "need": "Mobile · junior · Dart, Flutter, REST API",
+    "relevant": 7,
+    "keyword_resume_baseline": 0.644,
+    "self_declared_category": 0.782,
+    "ours_full": 0.764,
+    "ours_expert_weights": 0.757,
+    "ours_without_fsp": 0.769,
+    "ours_without_adjacent": 0.764
+   },
+   {
+    "need": "Mobile · middle · Swift, Git, Clean Architecture",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.493,
+    "self_declared_category": 0.607,
+    "ours_full": 0.897,
+    "ours_expert_weights": 0.87,
+    "ours_without_fsp": 0.916,
+    "ours_without_adjacent": 0.897
+   },
+   {
+    "need": "Mobile · middle · Dart, Flutter, REST API",
+    "relevant": 6,
+    "keyword_resume_baseline": 0.622,
+    "self_declared_category": 0.744,
+    "ours_full": 0.706,
+    "ours_expert_weights": 0.624,
+    "ours_without_fsp": 0.572,
+    "ours_without_adjacent": 0.706
+   },
+   {
+    "need": "Mobile · senior · Dart, REST API, Git",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.707,
+    "self_declared_category": 0.712,
+    "ours_full": 0.743,
+    "ours_expert_weights": 0.692,
+    "ours_without_fsp": 0.751,
+    "ours_without_adjacent": 0.743
+   },
+   {
+    "need": "ML · junior · Python, Статистика, SQL",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.469,
+    "self_declared_category": 0.642,
+    "ours_full": 0.779,
+    "ours_expert_weights": 0.768,
+    "ours_without_fsp": 0.767,
+    "ours_without_adjacent": 0.779
+   },
+   {
+    "need": "ML · junior/middle · Python, Pandas, Машинное обучение",
+    "relevant": 29,
+    "keyword_resume_baseline": 0.407,
+    "self_declared_category": 0.708,
+    "ours_full": 0.654,
+    "ours_expert_weights": 0.672,
+    "ours_without_fsp": 0.715,
+    "ours_without_adjacent": 0.654
+   },
+   {
+    "need": "ML · middle · Python, Pandas, SQL",
+    "relevant": 16,
+    "keyword_resume_baseline": 0.382,
+    "self_declared_category": 0.536,
+    "ours_full": 0.757,
+    "ours_expert_weights": 0.73,
+    "ours_without_fsp": 0.776,
+    "ours_without_adjacent": 0.757
+   },
+   {
+    "need": "ML · middle · Python, Deep Learning, PyTorch",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.623,
+    "self_declared_category": 0.737,
+    "ours_full": 0.877,
+    "ours_expert_weights": 0.85,
+    "ours_without_fsp": 0.874,
+    "ours_without_adjacent": 0.877
+   },
+   {
+    "need": "ML · senior · Python, SQL, Машинное обучение",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.339,
+    "self_declared_category": 0.459,
+    "ours_full": 0.73,
+    "ours_expert_weights": 0.714,
+    "ours_without_fsp": 0.734,
+    "ours_without_adjacent": 0.73
+   },
+   {
+    "need": "Data Analyst · junior · SQL, Power BI, Python",
+    "relevant": 23,
+    "keyword_resume_baseline": 0.52,
+    "self_declared_category": 0.772,
+    "ours_full": 0.852,
+    "ours_expert_weights": 0.865,
+    "ours_without_fsp": 0.814,
+    "ours_without_adjacent": 0.852
+   },
+   {
+    "need": "Data Analyst · junior · SQL, Tableau, Power BI",
+    "relevant": 15,
+    "keyword_resume_baseline": 0.535,
+    "self_declared_category": 0.701,
+    "ours_full": 0.738,
+    "ours_expert_weights": 0.709,
+    "ours_without_fsp": 0.708,
+    "ours_without_adjacent": 0.738
+   },
+   {
+    "need": "Data Analyst · middle · SQL, Продуктовая аналитика, Tableau",
+    "relevant": 21,
+    "keyword_resume_baseline": 0.511,
+    "self_declared_category": 0.557,
+    "ours_full": 0.858,
+    "ours_expert_weights": 0.858,
+    "ours_without_fsp": 0.817,
+    "ours_without_adjacent": 0.858
+   },
+   {
+    "need": "Data Analyst · middle · SQL, Статистика, Power BI",
+    "relevant": 18,
+    "keyword_resume_baseline": 0.461,
+    "self_declared_category": 0.64,
+    "ours_full": 0.743,
+    "ours_expert_weights": 0.743,
+    "ours_without_fsp": 0.743,
+    "ours_without_adjacent": 0.743
+   },
+   {
+    "need": "Data Analyst · senior · SQL, Tableau, Продуктовая аналитика",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.585,
+    "self_declared_category": 0.567,
+    "ours_full": 0.967,
+    "ours_expert_weights": 0.944,
+    "ours_without_fsp": 0.98,
+    "ours_without_adjacent": 0.967
+   },
+   {
+    "need": "DevOps · intern · Linux, Bash, Docker",
+    "relevant": 5,
+    "keyword_resume_baseline": 0.835,
+    "self_declared_category": 0.858,
+    "ours_full": 0.871,
+    "ours_expert_weights": 0.869,
+    "ours_without_fsp": 0.869,
+    "ours_without_adjacent": 0.835
+   },
+   {
+    "need": "DevOps · junior · Linux, Prometheus, Grafana",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.668,
+    "self_declared_category": 0.791,
+    "ours_full": 0.764,
+    "ours_expert_weights": 0.751,
+    "ours_without_fsp": 0.767,
+    "ours_without_adjacent": 0.764
+   },
+   {
+    "need": "DevOps · junior/middle · Linux, Docker, Terraform",
+    "relevant": 18,
+    "keyword_resume_baseline": 0.398,
+    "self_declared_category": 0.71,
+    "ours_full": 0.898,
+    "ours_expert_weights": 0.763,
+    "ours_without_fsp": 0.852,
+    "ours_without_adjacent": 0.898
+   },
+   {
+    "need": "DevOps · middle/senior · Linux, Terraform, Bash",
+    "relevant": 15,
+    "keyword_resume_baseline": 0.353,
+    "self_declared_category": 0.851,
+    "ours_full": 0.744,
+    "ours_expert_weights": 0.783,
+    "ours_without_fsp": 0.672,
+    "ours_without_adjacent": 0.744
+   },
+   {
+    "need": "DevOps · middle · Linux, Prometheus, Docker",
+    "relevant": 20,
+    "keyword_resume_baseline": 0.688,
+    "self_declared_category": 0.644,
+    "ours_full": 0.851,
+    "ours_expert_weights": 0.846,
+    "ours_without_fsp": 0.85,
+    "ours_without_adjacent": 0.851
+   },
+   {
+    "need": "DevOps · senior · Linux, Grafana, Python",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.52,
+    "self_declared_category": 0.838,
+    "ours_full": 0.729,
+    "ours_expert_weights": 0.721,
+    "ours_without_fsp": 0.729,
+    "ours_without_adjacent": 0.729
+   },
+   {
+    "need": "QA · intern · Тест-дизайн, SQL, JavaScript",
+    "relevant": 5,
+    "keyword_resume_baseline": 0.628,
+    "self_declared_category": 0.868,
+    "ours_full": 0.892,
+    "ours_expert_weights": 0.892,
+    "ours_without_fsp": 0.892,
+    "ours_without_adjacent": 0.892
+   },
+   {
+    "need": "QA · junior/middle · Тест-дизайн, JavaScript, Selenium",
+    "relevant": 20,
+    "keyword_resume_baseline": 0.386,
+    "self_declared_category": 0.814,
+    "ours_full": 0.812,
+    "ours_expert_weights": 0.706,
+    "ours_without_fsp": 0.812,
+    "ours_without_adjacent": 0.812
+   },
+   {
+    "need": "QA · junior · Тест-дизайн, Selenium, Allure",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.471,
+    "self_declared_category": 0.59,
+    "ours_full": 0.819,
+    "ours_expert_weights": 0.811,
+    "ours_without_fsp": 0.819,
+    "ours_without_adjacent": 0.819
+   },
+   {
+    "need": "QA · middle · Тест-дизайн, Selenium, Ручное тестирование",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.563,
+    "self_declared_category": 0.744,
+    "ours_full": 0.947,
+    "ours_expert_weights": 0.953,
+    "ours_without_fsp": 0.927,
+    "ours_without_adjacent": 0.947
+   },
+   {
+    "need": "QA · middle · Тест-дизайн, Selenium, SQL",
+    "relevant": 22,
+    "keyword_resume_baseline": 0.649,
+    "self_declared_category": 0.642,
+    "ours_full": 0.881,
+    "ours_expert_weights": 0.875,
+    "ours_without_fsp": 0.867,
+    "ours_without_adjacent": 0.881
+   },
+   {
+    "need": "QA · senior · Тест-дизайн, Postman, Автотесты",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.534,
+    "self_declared_category": 0.674,
+    "ours_full": 0.919,
+    "ours_expert_weights": 0.892,
+    "ours_without_fsp": 0.948,
+    "ours_without_adjacent": 0.919
+   },
+   {
+    "need": "InfoSec · intern/junior · OWASP, Burp Suite, Анализ инцидентов",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.717,
+    "self_declared_category": 0.667,
+    "ours_full": 0.766,
+    "ours_expert_weights": 0.734,
+    "ours_without_fsp": 0.772,
+    "ours_without_adjacent": 0.766
+   },
+   {
+    "need": "InfoSec · junior · OWASP, Python, Анализ инцидентов",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.6,
+    "self_declared_category": 0.65,
+    "ours_full": 0.743,
+    "ours_expert_weights": 0.696,
+    "ours_without_fsp": 0.737,
+    "ours_without_adjacent": 0.743
+   },
+   {
+    "need": "InfoSec · junior/middle · OWASP, Пентест, Анализ инцидентов",
+    "relevant": 23,
+    "keyword_resume_baseline": 0.533,
+    "self_declared_category": 0.683,
+    "ours_full": 0.722,
+    "ours_expert_weights": 0.717,
+    "ours_without_fsp": 0.723,
+    "ours_without_adjacent": 0.722
+   },
+   {
+    "need": "InfoSec · middle/senior · OWASP, CTF, Сети",
+    "relevant": 15,
+    "keyword_resume_baseline": 0.518,
+    "self_declared_category": 0.704,
+    "ours_full": 0.692,
+    "ours_expert_weights": 0.705,
+    "ours_without_fsp": 0.678,
+    "ours_without_adjacent": 0.692
+   },
+   {
+    "need": "InfoSec · middle · OWASP, Сети, CTF",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.45,
+    "self_declared_category": 0.678,
+    "ours_full": 0.72,
+    "ours_expert_weights": 0.694,
+    "ours_without_fsp": 0.696,
+    "ours_without_adjacent": 0.72
+   },
+   {
+    "need": "InfoSec · senior · OWASP, Криптография, Linux",
+    "relevant": 4,
+    "keyword_resume_baseline": 0.366,
+    "self_declared_category": 0.738,
+    "ours_full": 0.87,
+    "ours_expert_weights": 0.876,
+    "ours_without_fsp": 0.87,
+    "ours_without_adjacent": 0.827
+   },
+   {
+    "need": "Backend · intern · Java, Docker, Kafka",
+    "relevant": 16,
+    "keyword_resume_baseline": 0.695,
+    "self_declared_category": 0.821,
+    "ours_full": 0.817,
+    "ours_expert_weights": 0.798,
+    "ours_without_fsp": 0.691,
+    "ours_without_adjacent": 0.817
+   },
+   {
+    "need": "Backend · junior · Go, PostgreSQL, gRPC",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.246,
+    "self_declared_category": 0.699,
+    "ours_full": 0.719,
+    "ours_expert_weights": 0.731,
+    "ours_without_fsp": 0.63,
+    "ours_without_adjacent": 0.719
+   },
+   {
+    "need": "Backend · junior/middle · C#, PostgreSQL, REST API",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.558,
+    "self_declared_category": 0.41,
+    "ours_full": 0.567,
+    "ours_expert_weights": 0.7,
+    "ours_without_fsp": 0.56,
+    "ours_without_adjacent": 0.567
+   },
+   {
+    "need": "Backend · middle · Kotlin, Docker, Kafka",
+    "relevant": 21,
+    "keyword_resume_baseline": 0.483,
+    "self_declared_category": 0.524,
+    "ours_full": 0.663,
+    "ours_expert_weights": 0.615,
+    "ours_without_fsp": 0.592,
+    "ours_without_adjacent": 0.663
+   },
+   {
+    "need": "Backend · middle · Go, Kafka, gRPC",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.461,
+    "self_declared_category": 0.518,
+    "ours_full": 0.839,
+    "ours_expert_weights": 0.791,
+    "ours_without_fsp": 0.771,
+    "ours_without_adjacent": 0.839
+   },
+   {
+    "need": "Backend · senior · Go, PostgreSQL, gRPC",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.727,
+    "self_declared_category": 0.422,
+    "ours_full": 0.967,
+    "ours_expert_weights": 0.972,
+    "ours_without_fsp": 0.974,
+    "ours_without_adjacent": 0.967
+   },
+   {
+    "need": "Frontend · junior · JavaScript, TypeScript, Git",
+    "relevant": 20,
+    "keyword_resume_baseline": 0.422,
+    "self_declared_category": 0.821,
+    "ours_full": 0.786,
+    "ours_expert_weights": 0.766,
+    "ours_without_fsp": 0.783,
+    "ours_without_adjacent": 0.786
+   },
+   {
+    "need": "Frontend · junior · JavaScript, CSS, Next.js",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.555,
+    "self_declared_category": 0.783,
+    "ours_full": 0.837,
+    "ours_expert_weights": 0.81,
+    "ours_without_fsp": 0.846,
+    "ours_without_adjacent": 0.837
+   },
+   {
+    "need": "Frontend · middle/senior · JavaScript, TypeScript, Vite",
+    "relevant": 55,
+    "keyword_resume_baseline": 0.571,
+    "self_declared_category": 0.711,
+    "ours_full": 0.771,
+    "ours_expert_weights": 0.763,
+    "ours_without_fsp": 0.847,
+    "ours_without_adjacent": 0.771
+   },
+   {
+    "need": "Frontend · middle · JavaScript, Jest, Next.js",
+    "relevant": 19,
+    "keyword_resume_baseline": 0.486,
+    "self_declared_category": 0.668,
+    "ours_full": 0.712,
+    "ours_expert_weights": 0.78,
+    "ours_without_fsp": 0.772,
+    "ours_without_adjacent": 0.712
+   },
+   {
+    "need": "Frontend · senior · JavaScript, HTML, Git",
+    "relevant": 15,
+    "keyword_resume_baseline": 0.343,
+    "self_declared_category": 0.638,
+    "ours_full": 0.795,
+    "ours_expert_weights": 0.773,
+    "ours_without_fsp": 0.82,
+    "ours_without_adjacent": 0.795
+   },
+   {
+    "need": "Mobile · junior/middle · Swift, Clean Architecture, Git",
+    "relevant": 16,
+    "keyword_resume_baseline": 0.474,
+    "self_declared_category": 0.832,
+    "ours_full": 0.741,
+    "ours_expert_weights": 0.703,
+    "ours_without_fsp": 0.911,
+    "ours_without_adjacent": 0.741
+   },
+   {
+    "need": "Mobile · junior · Kotlin, Git, Jetpack Compose",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.583,
+    "self_declared_category": 0.665,
+    "ours_full": 0.744,
+    "ours_expert_weights": 0.744,
+    "ours_without_fsp": 0.744,
+    "ours_without_adjacent": 0.744
+   },
+   {
+    "need": "Mobile · middle/senior · Swift, Git, SwiftUI",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.64,
+    "self_declared_category": 0.631,
+    "ours_full": 0.883,
+    "ours_expert_weights": 0.78,
+    "ours_without_fsp": 0.862,
+    "ours_without_adjacent": 0.883
+   },
+   {
+    "need": "Mobile · middle · Swift, REST API, SwiftUI",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.48,
+    "self_declared_category": 0.585,
+    "ours_full": 0.759,
+    "ours_expert_weights": 0.783,
+    "ours_without_fsp": 0.797,
+    "ours_without_adjacent": 0.759
+   },
+   {
+    "need": "Mobile · senior · Dart, Flutter, Git",
+    "relevant": 6,
+    "keyword_resume_baseline": 0.801,
+    "self_declared_category": 0.765,
+    "ours_full": 0.91,
+    "ours_expert_weights": 0.888,
+    "ours_without_fsp": 0.91,
+    "ours_without_adjacent": 0.91
+   },
+   {
+    "need": "ML · junior · Python, Pandas, Deep Learning",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.49,
+    "self_declared_category": 0.599,
+    "ours_full": 0.74,
+    "ours_expert_weights": 0.733,
+    "ours_without_fsp": 0.824,
+    "ours_without_adjacent": 0.74
+   },
+   {
+    "need": "ML · junior · Python, Deep Learning, scikit-learn",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.598,
+    "self_declared_category": 0.621,
+    "ours_full": 0.68,
+    "ours_expert_weights": 0.68,
+    "ours_without_fsp": 0.68,
+    "ours_without_adjacent": 0.68
+   },
+   {
+    "need": "ML · middle · Python, SQL, Pandas",
+    "relevant": 16,
+    "keyword_resume_baseline": 0.485,
+    "self_declared_category": 0.605,
+    "ours_full": 0.82,
+    "ours_expert_weights": 0.807,
+    "ours_without_fsp": 0.831,
+    "ours_without_adjacent": 0.82
+   },
+   {
+    "need": "ML · middle · Python, NumPy, Машинное обучение",
+    "relevant": 22,
+    "keyword_resume_baseline": 0.3,
+    "self_declared_category": 0.597,
+    "ours_full": 0.779,
+    "ours_expert_weights": 0.755,
+    "ours_without_fsp": 0.773,
+    "ours_without_adjacent": 0.779
+   },
+   {
+    "need": "ML · senior · Python, Deep Learning, CatBoost",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.635,
+    "self_declared_category": 0.51,
+    "ours_full": 0.818,
+    "ours_expert_weights": 0.742,
+    "ours_without_fsp": 0.807,
+    "ours_without_adjacent": 0.818
+   },
+   {
+    "need": "Data Analyst · intern/junior · SQL, ClickHouse, Продуктовая аналитика",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.347,
+    "self_declared_category": 0.498,
+    "ours_full": 0.458,
+    "ours_expert_weights": 0.448,
+    "ours_without_fsp": 0.426,
+    "ours_without_adjacent": 0.458
+   },
+   {
+    "need": "Data Analyst · junior · SQL, Tableau, Python",
+    "relevant": 16,
+    "keyword_resume_baseline": 0.452,
+    "self_declared_category": 0.776,
+    "ours_full": 0.914,
+    "ours_expert_weights": 0.855,
+    "ours_without_fsp": 0.887,
+    "ours_without_adjacent": 0.914
+   },
+   {
+    "need": "Data Analyst · junior/middle · SQL, Pandas, Статистика",
+    "relevant": 23,
+    "keyword_resume_baseline": 0.223,
+    "self_declared_category": 0.847,
+    "ours_full": 0.923,
+    "ours_expert_weights": 0.89,
+    "ours_without_fsp": 0.885,
+    "ours_without_adjacent": 0.923
+   },
+   {
+    "need": "Data Analyst · middle · SQL, Статистика, Power BI",
+    "relevant": 18,
+    "keyword_resume_baseline": 0.716,
+    "self_declared_category": 0.709,
+    "ours_full": 0.816,
+    "ours_expert_weights": 0.816,
+    "ours_without_fsp": 0.816,
+    "ours_without_adjacent": 0.816
+   },
+   {
+    "need": "Data Analyst · middle · SQL, Pandas, Power BI",
+    "relevant": 22,
+    "keyword_resume_baseline": 0.525,
+    "self_declared_category": 0.595,
+    "ours_full": 0.757,
+    "ours_expert_weights": 0.723,
+    "ours_without_fsp": 0.759,
+    "ours_without_adjacent": 0.757
+   },
+   {
+    "need": "Data Analyst · senior · SQL, Pandas, Power BI",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.663,
+    "self_declared_category": 0.423,
+    "ours_full": 0.609,
+    "ours_expert_weights": 0.621,
+    "ours_without_fsp": 0.627,
+    "ours_without_adjacent": 0.609
+   },
+   {
+    "need": "DevOps · intern/junior · Linux, Python, Kubernetes",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.508,
+    "self_declared_category": 0.677,
+    "ours_full": 0.601,
+    "ours_expert_weights": 0.566,
+    "ours_without_fsp": 0.585,
+    "ours_without_adjacent": 0.601
+   },
+   {
+    "need": "DevOps · junior · Linux, Ansible, Kubernetes",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.575,
+    "self_declared_category": 0.769,
+    "ours_full": 0.864,
+    "ours_expert_weights": 0.854,
+    "ours_without_fsp": 0.845,
+    "ours_without_adjacent": 0.864
+   },
+   {
+    "need": "DevOps · junior · Linux, Bash, CI/CD",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.612,
+    "self_declared_category": 0.662,
+    "ours_full": 0.692,
+    "ours_expert_weights": 0.674,
+    "ours_without_fsp": 0.682,
+    "ours_without_adjacent": 0.692
+   },
+   {
+    "need": "DevOps · middle · Linux, Terraform, CI/CD",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.481,
+    "self_declared_category": 0.802,
+    "ours_full": 0.659,
+    "ours_expert_weights": 0.738,
+    "ours_without_fsp": 0.612,
+    "ours_without_adjacent": 0.659
+   },
+   {
+    "need": "DevOps · middle · Linux, Prometheus, Python",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.584,
+    "self_declared_category": 0.671,
+    "ours_full": 0.793,
+    "ours_expert_weights": 0.806,
+    "ours_without_fsp": 0.793,
+    "ours_without_adjacent": 0.793
+   },
+   {
+    "need": "DevOps · senior · Linux, Python, Bash",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.631,
+    "self_declared_category": 0.795,
+    "ours_full": 0.804,
+    "ours_expert_weights": 0.649,
+    "ours_without_fsp": 0.804,
+    "ours_without_adjacent": 0.804
+   },
+   {
+    "need": "QA · intern · Тест-дизайн, SQL, Java",
+    "relevant": 5,
+    "keyword_resume_baseline": 0.649,
+    "self_declared_category": 0.843,
+    "ours_full": 0.962,
+    "ours_expert_weights": 0.962,
+    "ours_without_fsp": 0.962,
+    "ours_without_adjacent": 0.915
+   },
+   {
+    "need": "QA · junior · Тест-дизайн, Selenium, Allure",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.471,
+    "self_declared_category": 0.64,
+    "ours_full": 0.819,
+    "ours_expert_weights": 0.811,
+    "ours_without_fsp": 0.819,
+    "ours_without_adjacent": 0.819
+   },
+   {
+    "need": "QA · junior · Тест-дизайн, Автотесты, SQL",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.522,
+    "self_declared_category": 0.619,
+    "ours_full": 0.772,
+    "ours_expert_weights": 0.768,
+    "ours_without_fsp": 0.769,
+    "ours_without_adjacent": 0.772
+   },
+   {
+    "need": "QA · middle · Тест-дизайн, Postman, Selenium",
+    "relevant": 22,
+    "keyword_resume_baseline": 0.523,
+    "self_declared_category": 0.714,
+    "ours_full": 0.767,
+    "ours_expert_weights": 0.79,
+    "ours_without_fsp": 0.757,
+    "ours_without_adjacent": 0.767
+   },
+   {
+    "need": "QA · middle · Тест-дизайн, Python, Ручное тестирование",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.829,
+    "self_declared_category": 0.845,
+    "ours_full": 0.893,
+    "ours_expert_weights": 0.894,
+    "ours_without_fsp": 0.861,
+    "ours_without_adjacent": 0.893
+   },
+   {
+    "need": "QA · senior · Тест-дизайн, Java, Allure",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.39,
+    "self_declared_category": 0.737,
+    "ours_full": 0.85,
+    "ours_expert_weights": 0.803,
+    "ours_without_fsp": 0.869,
+    "ours_without_adjacent": 0.85
+   },
+   {
+    "need": "InfoSec · junior · OWASP, SIEM, Сети",
+    "relevant": 15,
+    "keyword_resume_baseline": 0.598,
+    "self_declared_category": 0.82,
+    "ours_full": 0.836,
+    "ours_expert_weights": 0.798,
+    "ours_without_fsp": 0.836,
+    "ours_without_adjacent": 0.836
+   },
+   {
+    "need": "InfoSec · junior · OWASP, Сети, CTF",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.602,
+    "self_declared_category": 0.828,
+    "ours_full": 0.849,
+    "ours_expert_weights": 0.815,
+    "ours_without_fsp": 0.824,
+    "ours_without_adjacent": 0.849
+   },
+   {
+    "need": "InfoSec · middle · OWASP, SIEM, Сети",
+    "relevant": 7,
+    "keyword_resume_baseline": 0.39,
+    "self_declared_category": 0.578,
+    "ours_full": 0.757,
+    "ours_expert_weights": 0.742,
+    "ours_without_fsp": 0.757,
+    "ours_without_adjacent": 0.757
+   },
+   {
+    "need": "InfoSec · middle · OWASP, Linux, Python",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.4,
+    "self_declared_category": 0.765,
+    "ours_full": 0.77,
+    "ours_expert_weights": 0.767,
+    "ours_without_fsp": 0.771,
+    "ours_without_adjacent": 0.77
+   },
+   {
+    "need": "InfoSec · senior · OWASP, Сети, Burp Suite",
+    "relevant": 7,
+    "keyword_resume_baseline": 0.806,
+    "self_declared_category": 0.901,
+    "ours_full": 0.976,
+    "ours_expert_weights": 0.984,
+    "ours_without_fsp": 0.976,
+    "ours_without_adjacent": 0.911
+   },
+   {
+    "need": "Backend · intern · Go, Redis, Docker",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.513,
+    "self_declared_category": 0.781,
+    "ours_full": 0.673,
+    "ours_expert_weights": 0.648,
+    "ours_without_fsp": 0.658,
+    "ours_without_adjacent": 0.673
+   },
+   {
+    "need": "Backend · junior · Java, Микросервисы, Spring",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.476,
+    "self_declared_category": 0.524,
+    "ours_full": 0.777,
+    "ours_expert_weights": 0.67,
+    "ours_without_fsp": 0.795,
+    "ours_without_adjacent": 0.777
+   },
+   {
+    "need": "Backend · middle · Go, Kafka, PostgreSQL",
+    "relevant": 24,
+    "keyword_resume_baseline": 0.348,
+    "self_declared_category": 0.566,
+    "ours_full": 0.774,
+    "ours_expert_weights": 0.796,
+    "ours_without_fsp": 0.792,
+    "ours_without_adjacent": 0.774
+   },
+   {
+    "need": "Backend · middle · Go, Kafka, Docker",
+    "relevant": 27,
+    "keyword_resume_baseline": 0.39,
+    "self_declared_category": 0.538,
+    "ours_full": 0.728,
+    "ours_expert_weights": 0.728,
+    "ours_without_fsp": 0.688,
+    "ours_without_adjacent": 0.728
+   },
+   {
+    "need": "Backend · senior · C#, Docker, PostgreSQL",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.361,
+    "self_declared_category": 0.318,
+    "ours_full": 0.672,
+    "ours_expert_weights": 0.581,
+    "ours_without_fsp": 0.82,
+    "ours_without_adjacent": 0.672
+   },
+   {
+    "need": "Frontend · intern · TypeScript, Angular, Git",
+    "relevant": 4,
+    "keyword_resume_baseline": 0.695,
+    "self_declared_category": 0.808,
+    "ours_full": 0.899,
+    "ours_expert_weights": 0.899,
+    "ours_without_fsp": 0.899,
+    "ours_without_adjacent": 0.818
+   },
+   {
+    "need": "Frontend · junior/middle · JavaScript, HTML, CSS",
+    "relevant": 23,
+    "keyword_resume_baseline": 0.38,
+    "self_declared_category": 0.606,
+    "ours_full": 0.75,
+    "ours_expert_weights": 0.737,
+    "ours_without_fsp": 0.7,
+    "ours_without_adjacent": 0.75
+   },
+   {
+    "need": "Frontend · junior · JavaScript, CSS, Vue",
+    "relevant": 16,
+    "keyword_resume_baseline": 0.705,
+    "self_declared_category": 0.855,
+    "ours_full": 0.788,
+    "ours_expert_weights": 0.736,
+    "ours_without_fsp": 0.739,
+    "ours_without_adjacent": 0.788
+   },
+   {
+    "need": "Frontend · middle · JavaScript, Redux, Webpack",
+    "relevant": 32,
+    "keyword_resume_baseline": 0.435,
+    "self_declared_category": 0.624,
+    "ours_full": 0.88,
+    "ours_expert_weights": 0.732,
+    "ours_without_fsp": 0.916,
+    "ours_without_adjacent": 0.88
+   },
+   {
+    "need": "Frontend · middle · JavaScript, Vue, Vite",
+    "relevant": 23,
+    "keyword_resume_baseline": 0.733,
+    "self_declared_category": 0.798,
+    "ours_full": 0.821,
+    "ours_expert_weights": 0.702,
+    "ours_without_fsp": 0.725,
+    "ours_without_adjacent": 0.821
+   },
+   {
+    "need": "Frontend · senior · JavaScript, TypeScript, Vite",
+    "relevant": 18,
+    "keyword_resume_baseline": 0.412,
+    "self_declared_category": 0.494,
+    "ours_full": 0.64,
+    "ours_expert_weights": 0.638,
+    "ours_without_fsp": 0.65,
+    "ours_without_adjacent": 0.64
+   },
+   {
+    "need": "Mobile · intern · Swift, SwiftUI, Clean Architecture",
+    "relevant": 3,
+    "keyword_resume_baseline": 0.394,
+    "self_declared_category": 0.9,
+    "ours_full": 0.676,
+    "ours_expert_weights": 0.55,
+    "ours_without_fsp": 0.665,
+    "ours_without_adjacent": 0.312
+   },
+   {
+    "need": "Mobile · junior · Kotlin, Jetpack Compose, Git",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.545,
+    "self_declared_category": 0.62,
+    "ours_full": 0.716,
+    "ours_expert_weights": 0.746,
+    "ours_without_fsp": 0.716,
+    "ours_without_adjacent": 0.716
+   },
+   {
+    "need": "Mobile · junior/middle · Kotlin, Git, Clean Architecture",
+    "relevant": 20,
+    "keyword_resume_baseline": 0.414,
+    "self_declared_category": 0.595,
+    "ours_full": 0.586,
+    "ours_expert_weights": 0.589,
+    "ours_without_fsp": 0.615,
+    "ours_without_adjacent": 0.586
+   },
+   {
+    "need": "Mobile · middle · Kotlin, Coroutines, Git",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.677,
+    "self_declared_category": 0.727,
+    "ours_full": 0.847,
+    "ours_expert_weights": 0.873,
+    "ours_without_fsp": 0.847,
+    "ours_without_adjacent": 0.847
+   },
+   {
+    "need": "Mobile · middle/senior · Swift, REST API, Git",
+    "relevant": 20,
+    "keyword_resume_baseline": 0.532,
+    "self_declared_category": 0.579,
+    "ours_full": 0.828,
+    "ours_expert_weights": 0.8,
+    "ours_without_fsp": 0.841,
+    "ours_without_adjacent": 0.828
+   },
+   {
+    "need": "Mobile · senior · Kotlin, Git, Android SDK",
+    "relevant": 5,
+    "keyword_resume_baseline": 0.909,
+    "self_declared_category": 0.927,
+    "ours_full": 0.986,
+    "ours_expert_weights": 0.978,
+    "ours_without_fsp": 0.986,
+    "ours_without_adjacent": 0.986
+   },
+   {
+    "need": "ML · junior · Python, Pandas, PyTorch",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.6,
+    "self_declared_category": 0.658,
+    "ours_full": 0.738,
+    "ours_expert_weights": 0.73,
+    "ours_without_fsp": 0.7,
+    "ours_without_adjacent": 0.738
+   },
+   {
+    "need": "ML · junior · Python, NumPy, Pandas",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.405,
+    "self_declared_category": 0.507,
+    "ours_full": 0.518,
+    "ours_expert_weights": 0.514,
+    "ours_without_fsp": 0.467,
+    "ours_without_adjacent": 0.518
+   },
+   {
+    "need": "ML · middle · Python, SQL, NumPy",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.541,
+    "self_declared_category": 0.616,
+    "ours_full": 0.789,
+    "ours_expert_weights": 0.774,
+    "ours_without_fsp": 0.779,
+    "ours_without_adjacent": 0.789
+   },
+   {
+    "need": "ML · middle · Python, scikit-learn, Deep Learning",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.528,
+    "self_declared_category": 0.6,
+    "ours_full": 0.837,
+    "ours_expert_weights": 0.807,
+    "ours_without_fsp": 0.837,
+    "ours_without_adjacent": 0.837
+   },
+   {
+    "need": "ML · senior · Python, CatBoost, SQL",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.511,
+    "self_declared_category": 0.425,
+    "ours_full": 0.708,
+    "ours_expert_weights": 0.648,
+    "ours_without_fsp": 0.688,
+    "ours_without_adjacent": 0.708
+   },
+   {
+    "need": "Data Analyst · junior · SQL, Power BI, Pandas",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.598,
+    "self_declared_category": 0.596,
+    "ours_full": 0.795,
+    "ours_expert_weights": 0.805,
+    "ours_without_fsp": 0.73,
+    "ours_without_adjacent": 0.795
+   },
+   {
+    "need": "Data Analyst · junior · SQL, Tableau, Pandas",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.457,
+    "self_declared_category": 0.553,
+    "ours_full": 0.704,
+    "ours_expert_weights": 0.666,
+    "ours_without_fsp": 0.677,
+    "ours_without_adjacent": 0.704
+   },
+   {
+    "need": "Data Analyst · middle · SQL, Статистика, Power BI",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.685,
+    "self_declared_category": 0.62,
+    "ours_full": 0.721,
+    "ours_expert_weights": 0.737,
+    "ours_without_fsp": 0.721,
+    "ours_without_adjacent": 0.721
+   },
+   {
+    "need": "Data Analyst · middle · SQL, Tableau, Excel",
+    "relevant": 20,
+    "keyword_resume_baseline": 0.528,
+    "self_declared_category": 0.668,
+    "ours_full": 0.889,
+    "ours_expert_weights": 0.908,
+    "ours_without_fsp": 0.889,
+    "ours_without_adjacent": 0.889
+   },
+   {
+    "need": "Data Analyst · senior · SQL, Excel, Python",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.49,
+    "self_declared_category": 0.704,
+    "ours_full": 0.851,
+    "ours_expert_weights": 0.793,
+    "ours_without_fsp": 0.947,
+    "ours_without_adjacent": 0.851
+   },
+   {
+    "need": "DevOps · intern · Linux, Bash, Ansible",
+    "relevant": 3,
+    "keyword_resume_baseline": 0.387,
+    "self_declared_category": 0.646,
+    "ours_full": 0.741,
+    "ours_expert_weights": 0.831,
+    "ours_without_fsp": 0.741,
+    "ours_without_adjacent": 0.461
+   },
+   {
+    "need": "DevOps · junior · Linux, Python, Bash",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.647,
+    "self_declared_category": 0.714,
+    "ours_full": 0.765,
+    "ours_expert_weights": 0.661,
+    "ours_without_fsp": 0.716,
+    "ours_without_adjacent": 0.765
+   },
+   {
+    "need": "DevOps · junior/middle · Linux, CI/CD, Сети",
+    "relevant": 15,
+    "keyword_resume_baseline": 0.448,
+    "self_declared_category": 0.905,
+    "ours_full": 0.856,
+    "ours_expert_weights": 0.759,
+    "ours_without_fsp": 0.852,
+    "ours_without_adjacent": 0.856
+   },
+   {
+    "need": "DevOps · middle · Linux, Prometheus, Grafana",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.584,
+    "self_declared_category": 0.868,
+    "ours_full": 0.703,
+    "ours_expert_weights": 0.647,
+    "ours_without_fsp": 0.698,
+    "ours_without_adjacent": 0.703
+   },
+   {
+    "need": "DevOps · middle · Linux, Prometheus, Ansible",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.681,
+    "self_declared_category": 0.791,
+    "ours_full": 0.806,
+    "ours_expert_weights": 0.846,
+    "ours_without_fsp": 0.802,
+    "ours_without_adjacent": 0.806
+   },
+   {
+    "need": "DevOps · senior · Linux, Ansible, Terraform",
+    "relevant": 4,
+    "keyword_resume_baseline": 0.924,
+    "self_declared_category": 0.892,
+    "ours_full": 0.934,
+    "ours_expert_weights": 0.906,
+    "ours_without_fsp": 0.859,
+    "ours_without_adjacent": 0.934
+   },
+   {
+    "need": "QA · intern/junior · Тест-дизайн, Автотесты, Postman",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.535,
+    "self_declared_category": 0.815,
+    "ours_full": 0.925,
+    "ours_expert_weights": 0.871,
+    "ours_without_fsp": 0.926,
+    "ours_without_adjacent": 0.925
+   },
+   {
+    "need": "QA · junior · Тест-дизайн, SQL, Postman",
+    "relevant": 15,
+    "keyword_resume_baseline": 0.719,
+    "self_declared_category": 0.801,
+    "ours_full": 0.852,
+    "ours_expert_weights": 0.843,
+    "ours_without_fsp": 0.858,
+    "ours_without_adjacent": 0.852
+   },
+   {
+    "need": "QA · junior · Тест-дизайн, Автотесты, Python",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.447,
+    "self_declared_category": 0.601,
+    "ours_full": 0.873,
+    "ours_expert_weights": 0.865,
+    "ours_without_fsp": 0.892,
+    "ours_without_adjacent": 0.873
+   },
+   {
+    "need": "QA · middle · Тест-дизайн, Java, JMeter",
+    "relevant": 4,
+    "keyword_resume_baseline": 0.552,
+    "self_declared_category": 0.864,
+    "ours_full": 0.728,
+    "ours_expert_weights": 0.714,
+    "ours_without_fsp": 0.727,
+    "ours_without_adjacent": 0.728
+   },
+   {
+    "need": "QA · middle · Тест-дизайн, Selenium, Allure",
+    "relevant": 23,
+    "keyword_resume_baseline": 0.702,
+    "self_declared_category": 0.828,
+    "ours_full": 0.852,
+    "ours_expert_weights": 0.852,
+    "ours_without_fsp": 0.875,
+    "ours_without_adjacent": 0.852
+   },
+   {
+    "need": "QA · senior · Тест-дизайн, JMeter, Postman",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.484,
+    "self_declared_category": 0.69,
+    "ours_full": 0.893,
+    "ours_expert_weights": 0.824,
+    "ours_without_fsp": 0.893,
+    "ours_without_adjacent": 0.893
+   },
+   {
+    "need": "InfoSec · intern/junior · OWASP, SIEM, Burp Suite",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.576,
+    "self_declared_category": 0.734,
+    "ours_full": 0.777,
+    "ours_expert_weights": 0.789,
+    "ours_without_fsp": 0.704,
+    "ours_without_adjacent": 0.777
+   },
+   {
+    "need": "InfoSec · junior/middle · OWASP, Пентест, Анализ инцидентов",
+    "relevant": 26,
+    "keyword_resume_baseline": 0.688,
+    "self_declared_category": 0.815,
+    "ours_full": 0.753,
+    "ours_expert_weights": 0.751,
+    "ours_without_fsp": 0.8,
+    "ours_without_adjacent": 0.753
+   },
+   {
+    "need": "InfoSec · junior · OWASP, Анализ инцидентов, Linux",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.671,
+    "self_declared_category": 0.657,
+    "ours_full": 0.678,
+    "ours_expert_weights": 0.627,
+    "ours_without_fsp": 0.702,
+    "ours_without_adjacent": 0.678
+   },
+   {
+    "need": "InfoSec · middle/senior · OWASP, Burp Suite, Сети",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.637,
+    "self_declared_category": 0.7,
+    "ours_full": 0.678,
+    "ours_expert_weights": 0.7,
+    "ours_without_fsp": 0.678,
+    "ours_without_adjacent": 0.678
+   },
+   {
+    "need": "InfoSec · middle · OWASP, SIEM, Криптография",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.479,
+    "self_declared_category": 0.666,
+    "ours_full": 0.727,
+    "ours_expert_weights": 0.724,
+    "ours_without_fsp": 0.727,
+    "ours_without_adjacent": 0.727
+   },
+   {
+    "need": "InfoSec · senior · OWASP, Linux, SIEM",
+    "relevant": 3,
+    "keyword_resume_baseline": 0.659,
+    "self_declared_category": 0.67,
+    "ours_full": 0.745,
+    "ours_expert_weights": 0.76,
+    "ours_without_fsp": 0.745,
+    "ours_without_adjacent": 0.678
+   },
+   {
+    "need": "Backend · intern · C#, REST API, Docker",
+    "relevant": 7,
+    "keyword_resume_baseline": 0.372,
+    "self_declared_category": 0.432,
+    "ours_full": 0.694,
+    "ours_expert_weights": 0.694,
+    "ours_without_fsp": 0.685,
+    "ours_without_adjacent": 0.694
+   },
+   {
+    "need": "Backend · junior · Python, Kafka, Docker",
+    "relevant": 19,
+    "keyword_resume_baseline": 0.225,
+    "self_declared_category": 0.39,
+    "ours_full": 0.734,
+    "ours_expert_weights": 0.594,
+    "ours_without_fsp": 0.829,
+    "ours_without_adjacent": 0.734
+   },
+   {
+    "need": "Backend · middle · Java, REST API, Docker",
+    "relevant": 30,
+    "keyword_resume_baseline": 0.599,
+    "self_declared_category": 0.51,
+    "ours_full": 0.738,
+    "ours_expert_weights": 0.753,
+    "ours_without_fsp": 0.753,
+    "ours_without_adjacent": 0.738
+   },
+   {
+    "need": "Backend · middle/senior · Go, Kubernetes, PostgreSQL",
+    "relevant": 18,
+    "keyword_resume_baseline": 0.256,
+    "self_declared_category": 0.615,
+    "ours_full": 0.862,
+    "ours_expert_weights": 0.921,
+    "ours_without_fsp": 0.868,
+    "ours_without_adjacent": 0.862
+   },
+   {
+    "need": "Frontend · intern · JavaScript, TypeScript, Webpack",
+    "relevant": 3,
+    "keyword_resume_baseline": 0.296,
+    "self_declared_category": 0.574,
+    "ours_full": 0.88,
+    "ours_expert_weights": 0.88,
+    "ours_without_fsp": 0.88,
+    "ours_without_adjacent": 0.942
+   },
+   {
+    "need": "Frontend · junior · JavaScript, CSS, TypeScript",
+    "relevant": 22,
+    "keyword_resume_baseline": 0.516,
+    "self_declared_category": 0.736,
+    "ours_full": 0.783,
+    "ours_expert_weights": 0.744,
+    "ours_without_fsp": 0.783,
+    "ours_without_adjacent": 0.783
+   },
+   {
+    "need": "Frontend · junior · TypeScript, Angular, CSS",
+    "relevant": 15,
+    "keyword_resume_baseline": 0.609,
+    "self_declared_category": 0.743,
+    "ours_full": 0.675,
+    "ours_expert_weights": 0.614,
+    "ours_without_fsp": 0.665,
+    "ours_without_adjacent": 0.675
+   },
+   {
+    "need": "Frontend · middle · TypeScript, RxJS, HTML",
+    "relevant": 24,
+    "keyword_resume_baseline": 0.533,
+    "self_declared_category": 0.453,
+    "ours_full": 0.856,
+    "ours_expert_weights": 0.78,
+    "ours_without_fsp": 0.862,
+    "ours_without_adjacent": 0.856
+   },
+   {
+    "need": "Frontend · middle · JavaScript, HTML, Webpack",
+    "relevant": 33,
+    "keyword_resume_baseline": 0.466,
+    "self_declared_category": 0.382,
+    "ours_full": 0.738,
+    "ours_expert_weights": 0.561,
+    "ours_without_fsp": 0.787,
+    "ours_without_adjacent": 0.738
+   },
+   {
+    "need": "Frontend · senior · TypeScript, Angular, Git",
+    "relevant": 7,
+    "keyword_resume_baseline": 0.597,
+    "self_declared_category": 0.792,
+    "ours_full": 0.929,
+    "ours_expert_weights": 0.932,
+    "ours_without_fsp": 0.929,
+    "ours_without_adjacent": 0.929
+   },
+   {
+    "need": "Mobile · junior · Swift, Clean Architecture, SwiftUI",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.732,
+    "self_declared_category": 0.879,
+    "ours_full": 0.868,
+    "ours_expert_weights": 0.837,
+    "ours_without_fsp": 0.868,
+    "ours_without_adjacent": 0.868
+   },
+   {
+    "need": "Mobile · junior · Swift, Clean Architecture, REST API",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.473,
+    "self_declared_category": 0.615,
+    "ours_full": 0.683,
+    "ours_expert_weights": 0.623,
+    "ours_without_fsp": 0.752,
+    "ours_without_adjacent": 0.683
+   },
+   {
+    "need": "Mobile · middle · Swift, Git, REST API",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.375,
+    "self_declared_category": 0.697,
+    "ours_full": 0.908,
+    "ours_expert_weights": 0.908,
+    "ours_without_fsp": 0.945,
+    "ours_without_adjacent": 0.908
+   },
+   {
+    "need": "Mobile · middle · Swift, REST API, iOS SDK",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.66,
+    "self_declared_category": 0.693,
+    "ours_full": 0.826,
+    "ours_expert_weights": 0.843,
+    "ours_without_fsp": 0.838,
+    "ours_without_adjacent": 0.826
+   },
+   {
+    "need": "Mobile · senior · Swift, REST API, Git",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.475,
+    "self_declared_category": 0.597,
+    "ours_full": 0.661,
+    "ours_expert_weights": 0.575,
+    "ours_without_fsp": 0.66,
+    "ours_without_adjacent": 0.661
+   },
+   {
+    "need": "ML · junior · Python, Pandas, scikit-learn",
+    "relevant": 13,
+    "keyword_resume_baseline": 0.721,
+    "self_declared_category": 0.653,
+    "ours_full": 0.877,
+    "ours_expert_weights": 0.877,
+    "ours_without_fsp": 0.87,
+    "ours_without_adjacent": 0.877
+   },
+   {
+    "need": "ML · junior · Python, Deep Learning, Статистика",
+    "relevant": 12,
+    "keyword_resume_baseline": 0.593,
+    "self_declared_category": 0.755,
+    "ours_full": 0.887,
+    "ours_expert_weights": 0.882,
+    "ours_without_fsp": 0.879,
+    "ours_without_adjacent": 0.887
+   },
+   {
+    "need": "ML · middle · Python, SQL, CatBoost",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.518,
+    "self_declared_category": 0.603,
+    "ours_full": 0.802,
+    "ours_expert_weights": 0.742,
+    "ours_without_fsp": 0.721,
+    "ours_without_adjacent": 0.802
+   },
+   {
+    "need": "ML · middle/senior · Python, scikit-learn, Статистика",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.61,
+    "self_declared_category": 0.809,
+    "ours_full": 0.896,
+    "ours_expert_weights": 0.813,
+    "ours_without_fsp": 0.896,
+    "ours_without_adjacent": 0.896
+   },
+   {
+    "need": "ML · senior · Python, SQL, scikit-learn",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.646,
+    "self_declared_category": 0.505,
+    "ours_full": 0.857,
+    "ours_expert_weights": 0.868,
+    "ours_without_fsp": 0.811,
+    "ours_without_adjacent": 0.857
+   },
+   {
+    "need": "Data Analyst · junior · SQL, Продуктовая аналитика, Tableau",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.545,
+    "self_declared_category": 0.57,
+    "ours_full": 0.726,
+    "ours_expert_weights": 0.682,
+    "ours_without_fsp": 0.713,
+    "ours_without_adjacent": 0.726
+   },
+   {
+    "need": "Data Analyst · junior/middle · SQL, A/B-тестирование, Excel",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.633,
+    "self_declared_category": 0.802,
+    "ours_full": 0.92,
+    "ours_expert_weights": 0.875,
+    "ours_without_fsp": 0.913,
+    "ours_without_adjacent": 0.92
+   },
+   {
+    "need": "Data Analyst · middle/senior · SQL, Pandas, Tableau",
+    "relevant": 27,
+    "keyword_resume_baseline": 0.568,
+    "self_declared_category": 0.517,
+    "ours_full": 0.881,
+    "ours_expert_weights": 0.874,
+    "ours_without_fsp": 0.897,
+    "ours_without_adjacent": 0.881
+   },
+   {
+    "need": "Data Analyst · middle/senior · SQL, Статистика, Продуктовая аналитика",
+    "relevant": 20,
+    "keyword_resume_baseline": 0.592,
+    "self_declared_category": 0.474,
+    "ours_full": 0.869,
+    "ours_expert_weights": 0.866,
+    "ours_without_fsp": 0.869,
+    "ours_without_adjacent": 0.869
+   },
+   {
+    "need": "Data Analyst · senior · SQL, Excel, Pandas",
+    "relevant": 7,
+    "keyword_resume_baseline": 0.383,
+    "self_declared_category": 0.716,
+    "ours_full": 0.818,
+    "ours_expert_weights": 0.809,
+    "ours_without_fsp": 0.854,
+    "ours_without_adjacent": 0.818
+   },
+   {
+    "need": "DevOps · intern · Linux, Docker, Grafana",
+    "relevant": 4,
+    "keyword_resume_baseline": 0.762,
+    "self_declared_category": 0.917,
+    "ours_full": 0.949,
+    "ours_expert_weights": 0.921,
+    "ours_without_fsp": 0.948,
+    "ours_without_adjacent": 0.81
+   },
+   {
+    "need": "DevOps · junior · Linux, Prometheus, Bash",
+    "relevant": 8,
+    "keyword_resume_baseline": 0.725,
+    "self_declared_category": 0.835,
+    "ours_full": 0.855,
+    "ours_expert_weights": 0.815,
+    "ours_without_fsp": 0.84,
+    "ours_without_adjacent": 0.855
+   },
+   {
+    "need": "DevOps · junior/middle · Linux, Kubernetes, CI/CD",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.53,
+    "self_declared_category": 0.879,
+    "ours_full": 0.888,
+    "ours_expert_weights": 0.865,
+    "ours_without_fsp": 0.866,
+    "ours_without_adjacent": 0.888
+   },
+   {
+    "need": "DevOps · middle · Linux, Docker, Prometheus",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.46,
+    "self_declared_category": 0.59,
+    "ours_full": 0.753,
+    "ours_expert_weights": 0.734,
+    "ours_without_fsp": 0.753,
+    "ours_without_adjacent": 0.753
+   },
+   {
+    "need": "DevOps · middle · Linux, Prometheus, Bash",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.688,
+    "self_declared_category": 0.735,
+    "ours_full": 0.722,
+    "ours_expert_weights": 0.711,
+    "ours_without_fsp": 0.719,
+    "ours_without_adjacent": 0.722
+   },
+   {
+    "need": "DevOps · senior · Linux, Terraform, Python",
+    "relevant": 11,
+    "keyword_resume_baseline": 0.667,
+    "self_declared_category": 0.766,
+    "ours_full": 0.726,
+    "ours_expert_weights": 0.729,
+    "ours_without_fsp": 0.748,
+    "ours_without_adjacent": 0.726
+   },
+   {
+    "need": "QA · intern · Тест-дизайн, JavaScript, SQL",
+    "relevant": 3,
+    "keyword_resume_baseline": 0.833,
+    "self_declared_category": 0.836,
+    "ours_full": 0.885,
+    "ours_expert_weights": 0.852,
+    "ours_without_fsp": 0.885,
+    "ours_without_adjacent": 0.938
+   },
+   {
+    "need": "QA · junior · Тест-дизайн, Selenium, SQL",
+    "relevant": 10,
+    "keyword_resume_baseline": 0.374,
+    "self_declared_category": 0.518,
+    "ours_full": 0.763,
+    "ours_expert_weights": 0.746,
+    "ours_without_fsp": 0.8,
+    "ours_without_adjacent": 0.763
+   },
+   {
+    "need": "QA · junior/middle · Тест-дизайн, Postman, Автотесты",
+    "relevant": 18,
+    "keyword_resume_baseline": 0.333,
+    "self_declared_category": 0.797,
+    "ours_full": 0.914,
+    "ours_expert_weights": 0.901,
+    "ours_without_fsp": 0.914,
+    "ours_without_adjacent": 0.914
+   },
+   {
+    "need": "QA · middle · Тест-дизайн, Python, Allure",
+    "relevant": 17,
+    "keyword_resume_baseline": 0.543,
+    "self_declared_category": 0.82,
+    "ours_full": 0.852,
+    "ours_expert_weights": 0.868,
+    "ours_without_fsp": 0.875,
+    "ours_without_adjacent": 0.852
+   },
+   {
+    "need": "QA · middle · Тест-дизайн, Postman, Автотесты",
+    "relevant": 22,
+    "keyword_resume_baseline": 0.617,
+    "self_declared_category": 0.701,
+    "ours_full": 0.791,
+    "ours_expert_weights": 0.83,
+    "ours_without_fsp": 0.757,
+    "ours_without_adjacent": 0.791
+   },
+   {
+    "need": "QA · senior · Тест-дизайн, Postman, Allure",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.719,
+    "self_declared_category": 0.614,
+    "ours_full": 0.901,
+    "ours_expert_weights": 0.852,
+    "ours_without_fsp": 0.953,
+    "ours_without_adjacent": 0.901
+   },
+   {
+    "need": "InfoSec · intern · OWASP, CTF, SIEM",
+    "relevant": 5,
+    "keyword_resume_baseline": 0.346,
+    "self_declared_category": 0.633,
+    "ours_full": 0.73,
+    "ours_expert_weights": 0.641,
+    "ours_without_fsp": 0.73,
+    "ours_without_adjacent": 0.706
+   },
+   {
+    "need": "InfoSec · junior · OWASP, SIEM, Пентест",
+    "relevant": 19,
+    "keyword_resume_baseline": 0.522,
+    "self_declared_category": 0.681,
+    "ours_full": 0.723,
+    "ours_expert_weights": 0.721,
+    "ours_without_fsp": 0.723,
+    "ours_without_adjacent": 0.723
+   },
+   {
+    "need": "InfoSec · junior · OWASP, Криптография, Пентест",
+    "relevant": 19,
+    "keyword_resume_baseline": 0.587,
+    "self_declared_category": 0.754,
+    "ours_full": 0.766,
+    "ours_expert_weights": 0.665,
+    "ours_without_fsp": 0.76,
+    "ours_without_adjacent": 0.766
+   },
+   {
+    "need": "InfoSec · middle · OWASP, CTF, Python",
+    "relevant": 14,
+    "keyword_resume_baseline": 0.446,
+    "self_declared_category": 0.753,
+    "ours_full": 0.774,
+    "ours_expert_weights": 0.784,
+    "ours_without_fsp": 0.737,
+    "ours_without_adjacent": 0.774
+   },
+   {
+    "need": "InfoSec · middle/senior · OWASP, CTF, Криптография",
+    "relevant": 9,
+    "keyword_resume_baseline": 0.535,
+    "self_declared_category": 0.781,
+    "ours_full": 0.803,
+    "ours_expert_weights": 0.782,
+    "ours_without_fsp": 0.806,
+    "ours_without_adjacent": 0.803
+   },
+   {
+    "need": "InfoSec · senior · OWASP, Linux, Burp Suite",
+    "relevant": 5,
+    "keyword_resume_baseline": 0.752,
+    "self_declared_category": 0.749,
+    "ours_full": 0.967,
+    "ours_expert_weights": 0.965,
+    "ours_without_fsp": 0.967,
+    "ours_without_adjacent": 0.932
+   }
+  ],
+  "fsp_share_top10": 0.445,
+  "fsp_share_pool": 0.352,
+  "weights_default": {
+   "L": 0.414,
+   "S": 0.214,
+   "F": 0.079,
+   "A": 0.048,
+   "C": 0.162,
+   "D": 0.082
+  },
+  "params": {
+   "L": 0.393,
+   "S": 0.203,
+   "F_max": 0.125,
+   "A": 0.046,
+   "C": 0.154,
+   "D": 0.078,
+   "salary_mult": 0.623,
+   "format_mult": 0.683,
+   "gate_floor": 0.261,
+   "adjacent_mult": 0.902,
+   "related_mult": 0.884
+  },
+  "params_tuned": true
+ },
+ "external_example": {
+  "generated_at": "2026-10-08T07:07:46+00:00",
+  "vacancies": 48,
+  "vacancies_evaluated": 47,
+  "candidates": 620,
+  "labels": 5728,
+  "scale": "graded_0_3",
+  "threshold": 2,
+  "base_rate": 0.097,
+  "candidates_with_test": 445,
+  "candidates_with_fsp": 218,
+  "candidates_uncategorized": 0,
+  "summary": {
+   "pool": {
+    "ours": {
+     "p@10": 0.619,
+     "ndcg@10": 0.785,
+     "mrr": 0.949,
+     "recall@30": 0.904
+    },
+    "keyword_baseline": {
+     "p@10": 0.489,
+     "ndcg@10": 0.581,
+     "mrr": 0.75,
+     "recall@30": 0.691
+    },
+    "ideal": {
+     "p@10": 0.838,
+     "ndcg@10": 1.0,
+     "mrr": 1.0,
+     "recall@30": 1.0
+    }
+   },
+   "pairs": {
+    "ours": {
+     "p@10": 0.636,
+     "ndcg@10": 0.81,
+     "mrr": 0.97,
+     "recall@30": 0.937
+    },
+    "keyword_baseline": {
+     "p@10": 0.543,
+     "ndcg@10": 0.648,
+     "mrr": 0.824,
+     "recall@30": 0.701
+    },
+    "ideal": {
+     "p@10": 0.838,
+     "ndcg@10": 1.0,
+     "mrr": 1.0,
+     "recall@30": 1.0
+    }
+   }
+  },
+  "ours_beats_keyword": {
+   "wins": 42,
+   "ties": 0,
+   "losses": 5
+  },
+  "seeds": {
+   "ours": {
+    "p@10": {
+     "mean": 0.663,
+     "sd": 0.043
+    },
+    "ndcg@10": {
+     "mean": 0.773,
+     "sd": 0.019
+    },
+    "mrr": {
+     "mean": 0.944,
+     "sd": 0.02
+    }
+   },
+   "keyword_baseline": {
+    "p@10": {
+     "mean": 0.516,
+     "sd": 0.015
+    },
+    "ndcg@10": {
+     "mean": 0.563,
+     "sd": 0.017
+    },
+    "mrr": {
+     "mean": 0.79,
+     "sd": 0.04
+    }
+   }
+  }
+ },
+ "elapsed_s": 29.9
+}

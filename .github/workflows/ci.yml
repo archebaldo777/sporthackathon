@@ -1,0 +1,96 @@
+# Проверка при каждой загрузке: автотесты бэкенда (с компиляторами всех 9 языков заданий),
+# типизация и сборка фронтенда, запуск всей системы в Docker и сквозная проверка API.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: draft_test
+        ports: ["5432:5432"]
+        options: --health-cmd "pg_isready -U postgres" --health-interval 5s --health-retries 20
+    env:
+      DATABASE_URL: postgresql+psycopg://postgres:postgres@localhost:5432/draft_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13", cache: pip, cache-dependency-path: backend/requirements*.txt }
+      # Компиляторы языков, на которых показывается код в заданиях: ключи ответов сверяются исполнением
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "21" }
+      - uses: actions/setup-go@v5
+        with: { go-version: "1.23", cache: false }
+      - uses: shivammathur/setup-php@v2
+        with: { php-version: "8.3", coverage: none }
+      - uses: dart-lang/setup-dart@v1
+      - name: Kotlin
+        run: |
+          curl -sL -o /tmp/k.zip https://github.com/JetBrains/kotlin/releases/download/v2.0.21/kotlin-compiler-2.0.21.zip
+          unzip -q /tmp/k.zip -d /opt && echo /opt/kotlinc/bin >> "$GITHUB_PATH"
+      - name: Зависимости
+        working-directory: backend
+        run: pip install -r requirements-dev.txt pandas
+      - name: Автотесты
+        working-directory: backend
+        run: python -m pytest -q
+      - name: Ключи ответов — исполнением на всех языках (C# — в Docker)
+        working-directory: backend
+        run: |
+          python -m app.validation.code_exec --langs python,javascript,java,go,php,dart,kotlin,swift --seeds 4
+          python -m app.validation.code_exec --langs csharp --seeds 4 --docker
+
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Нет ли секретов в истории репозитория (gitleaks)
+        run: docker run --rm -v "$PWD":/repo ghcr.io/gitleaks/gitleaks:v8.21.2 git /repo --redact -v
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20", cache: npm, cache-dependency-path: frontend/package-lock.json }
+      - working-directory: frontend
+        run: npm ci && npm test && npm run build
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: [backend, frontend]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Сборка и запуск, как у экспертов
+        run: docker compose up --build -d --wait --wait-timeout 600
+      - name: Сквозная проверка
+        run: |
+          curl -fs http://localhost:8080/api/health
+          curl -fs http://localhost:8080/ | grep -q '<div id="root">'
+          curl -fs http://localhost:8081/realms/fsp/.well-known/openid-configuration | grep -q authorization_endpoint
+          TOKEN=$(curl -fs -X POST http://localhost:8080/api/v1/auth/login -H 'Content-Type: application/json' \
+            -d '{"email":"employer@draft.demo","password":"Demo2026!"}' | python3 -c 'import sys,json;print(json.load(sys.stdin)["access_token"])')
+          curl -fs -H "Authorization: Bearer $TOKEN" http://localhost:8080/api/v1/employer/needs | python3 -c 'import sys,json;d=json.load(sys.stdin);assert d["items"], d'
+      - uses: actions/setup-node@v4
+        with: { node-version: "20", cache: npm, cache-dependency-path: frontend/package-lock.json }
+      - name: Браузерные сценарии (Playwright) на запущенном стенде
+        working-directory: frontend
+        env: { E2E_BASE_URL: "http://localhost:8080" }
+        run: npm ci && npx playwright install --with-deps chromium && npx playwright test
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with: { name: playwright-report, path: frontend/playwright-report }
+      - name: Журналы при ошибке
+        if: failure()
+        run: docker compose logs --tail 200

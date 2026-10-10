@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.pyc
+backend/.venv/
+backend/.env
+backend/var/
+.pytest_cache/
+frontend/node_modules/
+frontend/dist/
+.env
+backend/tests/.jwt_test.pem
+docs/build/
+frontend/test-results/
+frontend/playwright-report/
+*.tsbuildinfo

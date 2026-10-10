@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Фирменные шрифты ФСП — локально (SIL OFL 1.1, лицензии рядом с файлами): без запросов к внешним CDN */
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/JetBrainsMono-var.woff") format("woff"); font-weight: 100 800; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("/fonts/Inter-var.woff") format("woff"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "TDAText"; src: url("/fonts/TDAText.woff") format("woff"); font-weight: 400; font-display: swap; }
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-surface text-ink font-sans antialiased; font-feature-settings: "cv11", "ss01"; }
+  h1, h2, h3, .font-display { @apply font-mono tracking-tight; }
+  ::selection { background: #402fff; color: white; }
+  :focus-visible { outline: 2px solid #402fff; outline-offset: 2px; }
+  /* элементы сетки не распирают колонку длинным содержимым (truncate, таблицы, код) — важно для мобильной ширины */
+  .grid > * { min-width: 0; }
+}
+
+@layer components {
+  .card { @apply bg-white rounded-2xl border border-line shadow-card; }
+  .label { @apply block text-[13px] font-medium text-ink-2 mb-1.5; }
+  .hint { @apply text-xs text-ink-3 mt-1; }
+  .input { @apply w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-4
+           focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100 transition disabled:bg-surface disabled:text-ink-3; }
+  .kicker { @apply font-mono text-[11px] uppercase tracking-[0.12em] text-ink-3; }
+  .num { @apply font-mono tabular-nums; }
+  .link { @apply text-brand-600 hover:text-brand-700 underline-offset-4 hover:underline; }
+  .code-block { @apply font-mono text-[13px] leading-relaxed bg-night text-surface-2 rounded-xl p-4 overflow-x-auto whitespace-pre; }
+  .prose-sm p { @apply mb-2; }
+  /* заголовок разделов в духе брендбука: моноширинный, прописными, с разрядкой */
+  .brand-title { @apply font-mono font-bold uppercase tracking-[0.04em]; }
+}
+
+.scrollbar-thin::-webkit-scrollbar { height: 6px; width: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: #c8c9ca; border-radius: 6px; }
+
+.grid-bg {
+  background-image: radial-gradient(rgba(64, 47, 255, 0.18) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Гибридный паттерн ФСП (символы кода в фирменных цветах) — полоса-орнамент для тёмного и светлого фона */
+.pattern-strip { background: url("/brand/pattern-strip-dark.svg") repeat-x left center / auto 100%; }
+.pattern-strip-light { background: url("/brand/pattern-strip-light.svg") repeat-x left center / auto 100%; }

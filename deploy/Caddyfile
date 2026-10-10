@@ -1,0 +1,19 @@
+# Три адреса стенда: платформа, демо-стенд ФСП ID (OIDC) и демо-почта (письма подтверждения e-mail)
+{$APP_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy frontend:80
+}
+
+{$FSP_DOMAIN} {
+	encode gzip
+	reverse_proxy fsp-mock:8081
+}
+
+{$MAIL_DOMAIN} {
+	reverse_proxy mailpit:8025
+}
+
+# Дополнительные имена портала (www, прежний технический адрес) — постоянная переадресация на основной домен
+{$APP_REDIRECT_FROM:http://redirect.invalid} {
+	redir https://{$APP_DOMAIN}{uri} permanent
+}

@@ -1,0 +1,82 @@
+# Драфт — платформа ИТ-найма с верифицированным профилем участника ФСП.
+# Запуск: docker compose up --build  →  http://localhost:8080
+name: draft
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: draft
+      POSTGRES_USER: draft
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-draft}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U draft -d draft"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  mailpit:
+    # SMTP-ловушка с веб-интерфейсом: письма подтверждения e-mail на демо-стенде
+    image: axllent/mailpit:v1.21
+    ports:
+      - "8025:8025"
+    restart: unless-stopped
+
+  fsp-mock:
+    # Демо-стенд ФСП ID (Keycloak-совместимый OIDC) + реестр достижений ФСП
+    build: ./fsp-mock
+    environment:
+      FSP_PUBLIC_BASE: ${FSP_PUBLIC_BASE:-http://localhost:8081}
+      FSP_ALLOWED_REDIRECTS: ${PUBLIC_URL:-http://localhost:8080},http://localhost:5173
+      FSP_CLIENT_ID: draft-platform
+      FSP_CLIENT_SECRET: ${FSP_CLIENT_SECRET:-draft-secret}
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    depends_on:
+      db:
+        condition: service_healthy
+      fsp-mock:
+        condition: service_started
+    environment:
+      DATABASE_URL: postgresql+psycopg://draft:${POSTGRES_PASSWORD:-draft}@db:5432/draft
+      PUBLIC_URL: ${PUBLIC_URL:-http://localhost:8080}
+      CORS_ORIGINS: ${PUBLIC_URL:-http://localhost:8080}
+      JWT_ISSUER: ${PUBLIC_URL:-http://localhost:8080}/realms/draft
+      SECRET_KEY: ${SECRET_KEY:-change-me-in-production}
+      SMTP_HOST: mailpit
+      SMTP_PORT: "1025"
+      DEMO_MODE: ${DEMO_MODE:-true}
+      DEMO_MAILBOX_URL: ${DEMO_MAILBOX_URL:-http://localhost:8025}
+      FSP_OIDC_PUBLIC_BASE: ${FSP_PUBLIC_BASE:-http://localhost:8081}
+      FSP_OIDC_INTERNAL_BASE: http://fsp-mock:8081
+      FSP_REGISTRY_API: http://fsp-mock:8081/api/v1
+      FSP_CLIENT_SECRET: ${FSP_CLIENT_SECRET:-draft-secret}
+      FSP_SEED_REGISTRY_PATH: /fsp-data/registry.json
+      SEED_CANDIDATES: ${SEED_CANDIDATES:-720}
+      WEB_CONCURRENCY: ${WEB_CONCURRENCY:-}  # пусто — по числу ядер, не больше 4
+    volumes:
+      - ./fsp-mock/data:/fsp-data:ro
+      - backend-var:/app/var
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  backend-var:
