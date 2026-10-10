@@ -5,7 +5,7 @@
 Требования: Docker 24+ и Docker Compose v2; 2 CPU, 2 ГБ RAM (стек потребляет < 1 ГБ); свободные порты 8080, 8000, 8081, 8025.
 
 ```bash
-git clone <репозиторий> draft && cd draft
+git clone https://github.com/archebaldo777/sporthackathon.git draft && cd draft
 cp .env.example .env            # при необходимости поменять секреты и адреса
 docker compose up --build -d
 docker compose ps               # все сервисы — Up / healthy
@@ -47,7 +47,7 @@ docker compose ps               # все сервисы — Up / healthy
 Нужен сервер с Docker (Ubuntu 22.04+, от 2 vCPU / 2 ГБ RAM) с открытыми портами 80 и 443. Домен не обязателен.
 
 ```bash
-git clone <репозиторий> draft && cd draft
+git clone https://github.com/archebaldo777/sporthackathon.git draft && cd draft
 ./deploy/deploy.sh                          # адреса вида https://draft.<ip>.sslip.io
 BASE_DOMAIN=example.ru ./deploy/deploy.sh   # свой домен: A-записи draft., fsp., mail. → IP сервера
 ```
