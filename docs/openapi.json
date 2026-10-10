@@ -2762,7 +2762,62 @@
             }
           },
           "403": {
-            "description": "Недостаточно прав",
+            "description": "Общий демо-аккаунт на демо-стенде (код demo_account_protected)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Ошибка валидации",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/candidate/demo/reset": {
+      "post": {
+        "tags": [
+          "Кандидат"
+        ],
+        "summary": "Демо-стенд: начать путь заново (только newbie и expert1–5)",
+        "description": "Удаляет профиль, опрос, попытки теста, категории, приглашения и отклики демо-аккаунта и создаёт пустой профиль — чтобы следующий эксперт жюри прошёл путь кандидата с нуля.",
+        "operationId": "demo_reset_api_v1_candidate_demo_reset_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Не аутентифицирован",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Недоступно для этого аккаунта или вне демо-режима",
             "content": {
               "application/json": {
                 "schema": {

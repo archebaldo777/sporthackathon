@@ -58,6 +58,8 @@ function FspButton({ label = "Войти через ФСП ID" }: { label?: stri
   );
 }
 
+const EXPERTS = [1, 2, 3, 4, 5].map((k) => `expert${k}@draft.demo`);
+
 function Login() {
   const [sp] = useSearchParams();
   const [email, setEmail] = useState(sp.get("email") || "");
@@ -92,6 +94,13 @@ function Login() {
               <button key={e} type="button" onClick={() => { setEmail(e); setPassword("Demo2026!"); }} className="rounded-lg border border-line bg-white px-2.5 py-1.5 text-[12.5px] hover:border-brand-300">{l}</button>
             ))}
           </div>
+          <div className="kicker mb-2 mt-4">Эксперты жюри — свой чистый кандидат</div>
+          <div className="flex flex-wrap gap-2">
+            {EXPERTS.map((e, i) => (
+              <button key={e} type="button" onClick={() => { setEmail(e); setPassword("Demo2026!"); }} className="rounded-lg border border-line bg-white px-2.5 py-1.5 font-mono text-[12.5px] hover:border-brand-300">expert{i + 1}</button>
+            ))}
+          </div>
+          <p className="mt-2 text-[12px] text-ink-3">Режим эксперта: ответить верно или неверно в один клик либо пройти тест за кандидата заданного уровня. Уже пройденный аккаунт можно начать заново.</p>
         </div>
       )}
     </Card>

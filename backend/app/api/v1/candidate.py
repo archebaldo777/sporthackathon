@@ -33,6 +33,7 @@ from app.models import (
 from app.nlp.resume_parser import parse_resume, pdf_to_text
 from app.schemas import AcceptIn, ApplyIn, CategoryIn, ConsentIn, ContactsAccessIn, DeclineIn, MessageIn, PrivacyIn, ProfileIn, ReportIn, SurveyIn, TaskSubmitIn
 from app.services import categories as cat_svc
+from app.services import demo
 from app.services import invitations as inv_svc
 from app.services import tasks as task_svc
 from app.services import webhooks
@@ -74,6 +75,8 @@ def own_profile(db: Session, c: CandidateProfile) -> dict:
         "fsp": fsp_summary(c),
         "last_attempt_id": c.last_attempt_id,
         "expert_mode": expert_mode(c.user.email if c.user else None),
+        "demo_shared": demo.shared_demo(c.user.email if c.user else None),
+        "demo_resettable": demo.resettable(c.user.email if c.user else None),
     })
     return card
 
@@ -461,6 +464,7 @@ def _unlink(db: Session, c: CandidateProfile) -> None:
 
 @router.delete("/fsp", summary="Отвязать ФСП ID и удалить полученные достижения")
 def fsp_unlink(request: Request, c: CandidateProfile = Depends(current_candidate), db: Session = Depends(get_db)):
+    demo.guard_shared(c.user.email if c.user else None, "отвязка ФСП ID")
     _unlink(db, c)
     record_consent(db, c.user_id, "fsp_data", False, request.client.host if request.client else None, request.headers.get("user-agent"))
     db.commit()
@@ -477,9 +481,20 @@ def export(c: CandidateProfile = Depends(current_candidate), db: Session = Depen
                     headers={"Content-Disposition": f'attachment; filename="draft-data-{c.public_code}.json"'})
 
 
-@router.delete("/account", status_code=204, summary="Удалить аккаунт и все персональные данные")
+@router.delete("/account", status_code=204, summary="Удалить аккаунт и все персональные данные",
+               responses=err(403, "Общий демо-аккаунт на демо-стенде (код demo_account_protected)"))
 def delete_account(c: CandidateProfile = Depends(current_candidate), db: Session = Depends(get_db)):
+    demo.guard_shared(c.user.email if c.user else None, "удаление аккаунта")
     u = db.get(User, c.user_id)
     audit(db, None, "account_deleted", "user", u.id)
     db.delete(u)
     db.commit()
+
+
+@router.post("/demo/reset", summary="Демо-стенд: начать путь заново (только newbie и expert1–5)",
+             description="Удаляет профиль, опрос, попытки теста, категории, приглашения и отклики демо-аккаунта и создаёт пустой "
+                         "профиль — чтобы следующий эксперт жюри прошёл путь кандидата с нуля.",
+             responses=err(403, "Недоступно для этого аккаунта или вне демо-режима"))
+def demo_reset(c: CandidateProfile = Depends(current_candidate), db: Session = Depends(get_db)):
+    demo.reset_candidate(db, c)
+    return {"status": "reset"}

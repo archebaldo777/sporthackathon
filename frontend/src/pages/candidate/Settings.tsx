@@ -23,8 +23,8 @@ export default function Settings() {
   const consent = useMutation({ mutationFn: (body: any) => api("/candidate/consents", { body }), onSuccess: inv, onError: (e: ApiError) => toast.error(e.message) });
   const link = useMutation({ mutationFn: () => api("/auth/fsp/link"), onSuccess: (r: any) => (window.location.href = r.authorize_url), onError: (e: ApiError) => toast.error(e.message) });
   const sync = useMutation({ mutationFn: () => api("/candidate/fsp/sync", { method: "POST" }), onSuccess: (r: any) => { inv(); toast.success(`Достижения обновлены: ${r.achievements}`); }, onError: (e: ApiError) => toast.error(e.message) });
-  const unlink = useMutation({ mutationFn: () => api("/candidate/fsp", { method: "DELETE" }), onSuccess: () => { inv(); toast.success("ФСП ID отвязан"); } });
-  const remove = useMutation({ mutationFn: () => api("/candidate/account", { method: "DELETE" }), onSuccess: () => { logout(); nav("/"); toast.success("Аккаунт и данные удалены"); } });
+  const unlink = useMutation({ mutationFn: () => api("/candidate/fsp", { method: "DELETE" }), onSuccess: () => { inv(); toast.success("ФСП ID отвязан"); }, onError: (e: ApiError) => toast.error(e.message) });
+  const remove = useMutation({ mutationFn: () => api("/candidate/account", { method: "DELETE" }), onSuccess: () => { logout(); nav("/"); toast.success("Аккаунт и данные удалены"); }, onError: (e: ApiError) => { setDel(false); toast.error(e.message); } });
   if (isLoading || !me) return <PageLoader />;
   const p = me.privacy || {};
   return (
@@ -39,7 +39,7 @@ export default function Settings() {
                 <div className="flex flex-wrap items-center gap-2"><Badge tone="fsp">ФСП ID: {me.fsp.fsp_id}</Badge><Badge tone="ok">{me.fsp.count} результатов</Badge></div>
                 <div className="flex flex-wrap gap-2">
                   <Button variant="secondary" icon={<RefreshCw className="h-4 w-4" />} loading={sync.isPending} onClick={() => sync.mutate()}>Обновить из реестра</Button>
-                  <Button variant="ghost" icon={<Unlink className="h-4 w-4" />} onClick={() => unlink.mutate()}>Отвязать</Button>
+                  <Button variant="ghost" icon={<Unlink className="h-4 w-4" />} disabled={me.demo_shared} title={me.demo_shared ? "Отключено для общего демо-аккаунта" : undefined} onClick={() => unlink.mutate()}>Отвязать</Button>
                 </div>
                 <div className="max-h-72 overflow-y-auto"><FspPanel fsp={me.fsp} own /></div>
               </>
@@ -83,8 +83,12 @@ export default function Settings() {
         <CardHeader title="Мои данные" />
         <div className="flex flex-wrap gap-3 px-5 pb-5">
           <Button variant="outline" icon={<Download className="h-4 w-4" />} onClick={() => download("/candidate/export", `draft-data-${me.code}.json`)}>Выгрузить все мои данные</Button>
-          <Button variant="danger" icon={<Trash2 className="h-4 w-4" />} onClick={() => setDel(true)}>Удалить аккаунт</Button>
+          <Button variant="danger" icon={<Trash2 className="h-4 w-4" />} disabled={me.demo_shared} onClick={() => setDel(true)}>Удалить аккаунт</Button>
         </div>
+        {me.demo_shared && (
+          <p className="-mt-2 px-5 pb-5 text-[12.5px] text-ink-3">Это общий демо-аккаунт для жюри: удаление и отвязка ФСП ID отключены, чтобы не сломать
+            сценарий другим экспертам. Проверить их можно на своём аккаунте — зарегистрируйтесь, письмо с кодом придёт в демо-почту.</p>
+        )}
       </Card>
       <Modal open={del} onClose={() => setDel(false)} title="Удалить аккаунт?"
         footer={<><Button variant="ghost" onClick={() => setDel(false)}>Отмена</Button><Button variant="danger" disabled={confirmText !== "УДАЛИТЬ"} loading={remove.isPending} onClick={() => remove.mutate()}>Удалить навсегда</Button></>}>

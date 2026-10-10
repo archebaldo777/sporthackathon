@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { AlertTriangle, Award, BadgeCheck, CheckCircle2, Clock, Info, MapPin, Medal, ShieldCheck, Star, Trophy, Users } from "lucide-react";
+import { AlertTriangle, Award, BadgeCheck, CheckCircle2, Clock, Info, MapPin, Medal, RotateCcw, ShieldCheck, Star, Trophy, Users } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer } from "recharts";
 import { toast } from "sonner";
 import { api, ApiError } from "@/lib/api";
@@ -316,5 +316,31 @@ export function InfoRow({ label, children }: { label: ReactNode; children: React
     <div className="flex justify-between gap-4 border-b border-line py-2.5 text-[14px] last:border-0">
       <span className="text-ink-3">{label}</span><span className="text-right font-medium text-ink">{children}</span>
     </div>
+  );
+}
+
+/** Демо-стенд: аккаунт жюри (newbie, expert1–5) после прохождения можно вернуть к началу пути — для следующего эксперта. */
+export function DemoReset({ me }: { me: any }) {
+  const qc = useQueryClient();
+  const nav = useNavigate();
+  const [open, setOpen] = useState(false);
+  const reset = useMutation({
+    mutationFn: () => api("/candidate/demo/reset", { method: "POST" }),
+    onSuccess: () => { setOpen(false); qc.invalidateQueries(); toast.success("Аккаунт сброшен — начните с опроса"); nav("/c/assessment"); },
+    onError: (e: ApiError) => toast.error(e.message),
+  });
+  const used = !!(me?.survey_completed_at || me?.grade || me?.declared_grade || me?.last_attempt_id);
+  if (!me?.demo_resettable || !used) return null;
+  return (
+    <>
+      <Alert tone="warn" icon={<RotateCcw className="h-4 w-4" />} title="Этот демо-аккаунт жюри уже проходили">
+        Чтобы пройти путь кандидата с нуля, <button type="button" className="font-semibold underline underline-offset-2" onClick={() => setOpen(true)}>начните заново</button>.
+      </Alert>
+      <Modal open={open} onClose={() => setOpen(false)} title="Начать путь заново?"
+        footer={<><Button variant="ghost" onClick={() => setOpen(false)}>Отмена</Button><Button icon={<RotateCcw className="h-4 w-4" />} loading={reset.isPending} onClick={() => reset.mutate()}>Начать заново</Button></>}>
+        <p className="text-[14px] text-ink-2">Профиль вернётся к состоянию «только что зарегистрирован»: опрос, попытки теста, категория, приглашения и отклики этого
+          демо-аккаунта будут удалены, блокировка смены грейда снимется. Это действует только для аккаунтов жюри на демо-стенде.</p>
+      </Modal>
+    </>
   );
 }

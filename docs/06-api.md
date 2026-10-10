@@ -100,6 +100,7 @@ curl -X POST /api/v1/candidate/invitations/15/accept -d '{"message":"Готов 
 | `DELETE` | `/api/v1/candidate/fsp` | Отвязать ФСП ID и удалить полученные достижения | 200 | 401, 403, 422 |
 | `GET` | `/api/v1/candidate/export` | Выгрузка всех персональных данных (право субъекта ПДн, 152-ФЗ ст. 14) | 200 | 401, 403, 422 |
 | `DELETE` | `/api/v1/candidate/account` | Удалить аккаунт и все персональные данные | 204 | 401, 403, 422 |
+| `POST` | `/api/v1/candidate/demo/reset` | Демо-стенд: начать путь заново (только newbie и expert1–5) | 200 | 401, 403, 422 |
 
 ## Тестирование
 

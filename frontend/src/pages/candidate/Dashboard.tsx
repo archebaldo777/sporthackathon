@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, BadgeCheck, CheckCircle2, Circle, ClipboardCheck, Download, Inbox, Lock, Sparkles, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
-import { CategoryBadge, FspPanel, StatusBadge, TopicRadar } from "@/components/domain";
+import { CategoryBadge, DemoReset, FspPanel, StatusBadge, TopicRadar } from "@/components/domain";
 import { PageHeader } from "@/components/layout/Layouts";
 import { Alert, Badge, Button, Card, CardHeader, CompanyMark, EmptyState, Meter, PageLoader, Stat } from "@/components/ui";
 import { api, download } from "@/lib/api";
@@ -20,6 +20,7 @@ export default function CandidateDashboard() {
       <PageHeader title={`Здравствуйте${me.contacts?.full_name ? `, ${me.contacts.full_name.split(" ")[0]}` : ""}!`}
         subtitle={me.grade ? "Ваш профиль в базе: работодатели видят категорию, подтверждённые навыки и достижения — и приглашают сами." : (me.declared_grade && me.visible ? "Работодатели уже видят вас со статусом «грейд не подтверждён» — ниже кандидатов с подтверждённым грейдом. Пройдите тест, чтобы подняться в выдаче." : "Пройдите опрос и тест, чтобы попасть в категорию — после этого вас начнут находить работодатели.")}
         action={me.grade && <Button variant="outline" icon={<Download className="h-4 w-4" />} onClick={() => download("/candidate/profile/pdf", `draft-profile-${me.code}.pdf`)}>PDF-профиль</Button>} />
+      <DemoReset me={me} />
 
       <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
         <Card className="overflow-hidden">

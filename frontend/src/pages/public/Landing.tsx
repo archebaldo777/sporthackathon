@@ -154,6 +154,12 @@ export default function Landing() {
                 </Link>
               ))}
             </div>
+            <div className="mt-4 flex flex-wrap items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-[13px]">
+              <span className="mr-1 text-white/70">Эксперты жюри — свой чистый кандидат с режимом эксперта:</span>
+              {[1, 2, 3, 4, 5].map((k) => (
+                <Link key={k} to={`/login?email=${encodeURIComponent(`expert${k}@draft.demo`)}`} className="rounded-lg border border-white/15 px-2 py-1 font-mono text-[12.5px] text-brand-300 transition hover:border-brand-400">expert{k}@draft.demo</Link>
+              ))}
+            </div>
             <p className="mt-5 text-[13px] text-white/50">Регистрация нового пользователя требует подтверждения e-mail: письма на демо-стенде приходят в веб-почту Mailpit
               {s.demo_mailbox_url && <> (<a className="text-brand-300 underline" href={s.demo_mailbox_url} target="_blank" rel="noreferrer">{s.demo_mailbox_url}</a>)</>}.</p>
             </div>

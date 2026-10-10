@@ -128,7 +128,7 @@ npm run dev          # http://localhost:5173, прокси /api → localhost:80
 ```bash
 cd backend
 createdb draft_test                                  # отдельная БД для тестов
-.venv/bin/python -m pytest -q                        # 278 тестов
+.venv/bin/python -m pytest -q                        # 282 теста
 .venv/bin/python -m app.validation.run_all           # процедура валидации → validation_results/ и docs/04-validation.md
 .venv/bin/python -m app.validation.tune_matching     # подстройка весов подбора на отдельных наборах → app/matching/tuned_params.json
 .venv/bin/python -m app.validation.code_exec --docker  # ключи ответов: исполнение кода на 9 языках в Docker-образах
